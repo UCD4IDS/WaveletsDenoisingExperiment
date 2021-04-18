@@ -180,7 +180,8 @@ md"**Select** which type of thresholding to use"
 # ╔═╡ f9a7488d-12a6-45f0-9c70-e67448dfe637
 @bind threshold_method Radio(
 	["HardTH()" => "Hard",
-	"SoftTH()" => "Soft"],
+	"SoftTH()" => "Soft",
+	"SteinTH()" => "Stein"],
 	default = "HardTH()"
 )
 
@@ -211,7 +212,7 @@ md"**Baseline**: No denoising"
 begin
 	wt = wavelet(eval(Meta.parse(wavelet_type)))
 	th = eval(Meta.parse(threshold_method))
-	dnt = VisuShrink(th, 256)
+	dnt = VisuShrink(256, th)
 	# define variables to store results
 	Y = Dict{String, AbstractArray}()
 	X̂ = Dict{String, AbstractArray}()
@@ -526,11 +527,14 @@ md"**Selected Test Parameters:**
 # ╔═╡ 56c7a1b9-c75f-48d8-a602-c219a2f432af
 if autorun == "Yes"
 	Gadfly.plot(
-		results, 
+		results[results[:,:transform] .!= "None", :],
 		y=:transform, 
 		x=:PSNR, 
+		xintercept=results[results[:, :transform] .== "None", :PSNR],
 		color=:threshold, 
-		Guide.title("PSNR")
+		Guide.title("PSNR"),
+		Geom.point,
+		Geom.vline(color=["red"])
 	)
 end
 

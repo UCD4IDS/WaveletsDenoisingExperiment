@@ -9,7 +9,7 @@ This experiment is conducted by Zeng Fung Liew and Shozen Dan under the supervis
 ## Table of Contents
 1. [Code for denoising experiment](src/denoisingexperiments.jl)
 2. [Code for denoising analysis](src/denoisinganalysis.jl)
-3. [Pluto notebook containing results and report](denoisingnotebook.jl)
+3. [Pluto notebook containing results and report](notebooks/denoisingnotebook.jl)
 
 ## How to Open and Run Pluto Notebook
 ### Method 1: Opening notebook directly without downloading any files
