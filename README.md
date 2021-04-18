@@ -12,6 +12,24 @@ This experiment is conducted by Zeng Fung Liew and Shozen Dan under the supervis
 3. [Pluto notebook containing results and report](denoisingnotebook.jl)
 
 ## How to Open and Run Pluto Notebook
+### Method 1: Opening notebook directly without downloading any files
+1. Open up the Julia REPL.
+2. (Skip to step 3 if the Pluto package is already installed in Julia).   
+Install Pluto in Julia either on the REPL or in the package manager. The package manager can be activated by hitting the `]` key.
+```
+# install on REPL
+julia> using Pkg; Pkg.add("Pluto")
+# install on package manager
+(@v1.6) pkg> add Pluto
+```
+3. Return to the REPL and type the following command:
+```
+julia> import Pluto; Pluto.run()
+```
+4. Pluto should open up in the default browser. Copy-paste the following URL into the file path:  
+[https://github.com/zengfung/WaveletsDenoisingExperiment/blob/master/notebooks/denoisingnotebook.jl](https://github.com/zengfung/WaveletsDenoisingExperiment/blob/master/notebooks/denoisingnotebook.jl)
+
+### Method 2: Opening notebook after cloning this repository
 1. Open up the Julia REPL.
 2. Ensure Julia is working on the current directory. This can be checked using the following commands:
 ```
