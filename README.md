@@ -29,7 +29,7 @@ julia> import Pluto; Pluto.run()
 4. Pluto should open up in the default browser. Copy-paste the following URL into the file path:  
 [https://github.com/zengfung/WaveletsDenoisingExperiment/blob/master/notebooks/denoisingnotebook.jl](https://github.com/zengfung/WaveletsDenoisingExperiment/blob/master/notebooks/denoisingnotebook.jl)
 
-### Method 2: Opening notebook after cloning this repository
+### Method 2 (**Recommended**): Opening notebook after cloning this repository
 1. Open up the Julia REPL.
 2. Ensure Julia is working on the current directory. This can be checked using the following commands:
 ```
