@@ -524,6 +524,27 @@ md"**Selected Test Parameters:**
 **Note**: You might need to re-run the block below after updating a parameter to display the results>
 "
 
+# ╔═╡ 1682b2eb-b68c-4182-986b-d921fcfc039d
+md"""
+**Result Summary**  
+
+Number of results shown:
+$(@bind topN Slider(1:17, default=5, show_value=true))
+
+Sort by:
+$(@bind sortby Radio([":PSNR" => "PSNR", ":time" => "Time"], default = ":PSNR"))
+Order:
+$(@bind sortorder Radio(["true" => "Decreasing", "false" => "Increasing"], 
+	default = "true"))
+"""
+
+# ╔═╡ 0944c544-006a-45cc-b4c9-ad5bf6877ca3
+begin
+	column = eval(Meta.parse(sortby))
+	ascending = eval(Meta.parse(sortorder))
+	first(sort!(results, [column], rev=ascending), topN)
+end
+
 # ╔═╡ 56c7a1b9-c75f-48d8-a602-c219a2f432af
 if autorun == "Yes"
 	Gadfly.plot(
@@ -620,4 +641,6 @@ end
 # ╠═7a6c247e-d765-4299-bd93-8d8271ca711f
 # ╟─7103af68-9ad7-4b81-8c21-c8b6d7c9f5be
 # ╟─9818ca36-0acc-4cc3-924e-8b50813c1da1
+# ╟─1682b2eb-b68c-4182-986b-d921fcfc039d
+# ╟─0944c544-006a-45cc-b4c9-ad5bf6877ca3
 # ╠═56c7a1b9-c75f-48d8-a602-c219a2f432af
