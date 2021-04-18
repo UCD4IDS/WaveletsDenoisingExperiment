@@ -28,7 +28,7 @@ julia> cd("C:/Users/USER/Documents/WaveletsDenoisingExperiment")
 4. Activate the current environment by typing the following.   
 Note: Step 2 has to be done correctly for this step to work!
 ```
-(@v1.6) pkg> activate .
+(@v1.6) pkg> activate ./notebooks
 (@v1.6) pkg> instantiate
 ```  
 

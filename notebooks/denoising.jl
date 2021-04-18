@@ -39,7 +39,7 @@ md"## I. Exploratory Data Analysis"
 md"Let's load some test functions"
 
 # ╔═╡ d0c98a14-ad3e-4a0b-b889-a3ea86f888f3
-testdata = CSV.read("./data/wavelet_test_256.csv", DataFrame)
+testdata = CSV.read("../data/wavelet_test_256.csv", DataFrame)
 
 # ╔═╡ b0a28618-7cda-4c05-83d2-b54bbca3f9b5
 md"**Select** a test function"
@@ -70,19 +70,14 @@ end
 # ╔═╡ 851b04bb-e382-4a0a-98f6-7d4b983ca5ab
 begin
 	x_test = testdata[!,signal_name_test]
-	p1_test = Plots.plot(x_test, ylim = (minimum(x_test)-1,maximum(x_test)+1), label = "Original signal", title = "Original vs Noisy")
+	p1_test = Plots.plot(x_test, ylim = (minimum(x_test)-1,maximum(x_test)+1), label = "Original signal")
 	x_noisy_test = addnoise(x_test, noise_size_test)
 	Plots.plot!(x_noisy_test, label = "Noisy signal");
 	
 	y_test = acwt(x_noisy_test, wavelet(WT.db4), 4);
 	p2_test = WaveletsExt.wiggle(y_test)
-	Plots.plot!(p2_test, title = "Autocorrelation Transform of Noisy Signal")
 	
-	z_test = sdwt(x_noisy_test, wavelet(WT.db4), 4);
-	p3_test = WaveletsExt.wiggle(z_test)
-	Plots.plot!(p3_test, title = "Stationary Transform of Noisy Signal")
-	
-	Plots.plot(p1_test, p2_test, p3_test, layout = (3,1))
+	Plots.plot(p1_test, p2_test, layout = (2,1))
 end
 
 # ╔═╡ 356d75f4-6cc1-4062-8ef6-3cc6a9c2d9a7
@@ -95,45 +90,29 @@ Plots.histogram(vec(abs.(y_test)), legend = false)
 md"Threshold the coefficients using an arbitrary threshold value"
 
 # ╔═╡ 10452433-7123-4006-9e3d-ae4245fefdc5
-threshold!(y_test, HardTH(), 0.5);
-
-# ╔═╡ 1ab693e2-edca-4ed7-a366-1103fc9d4202
-threshold!(z_test, HardTH(), 0.5);
+threshold!(y_test, HardTH(), 0.3);
 
 # ╔═╡ a663045c-fa0f-49fe-88c2-794450cb7806
 md"Reconstruct the signal using the thresholded coefficients"
 
 # ╔═╡ 9b4ef541-9a36-4bc0-8654-10ab0a4e63b3
 begin
-	r1_test = iacwt(y_test)
-	r2_test = isdwt(z_test, wavelet(WT.db4))
-	Plots.plot(x_test, label = "original", lc = "black", lw=1.5,
-		title = "Original vs Denoised Signals")
-	Plots.plot!(r1_test, label = "ACWT denoised")
-	Plots.plot!(r2_test, label = "SDWT denoised")
-	Plots.plot!(x_noisy_test, label = "noisy", lc = "gray", la = 0.3)
+	r_test = iacwt(y_test)
+	Plots.plot(x_test, label = "original")
+	Plots.plot!(r_test, label = "denoised")
 end
 
 # ╔═╡ 4669be94-6c4c-42e2-b9d9-2dc98f1bdaea
-md"**Calculate the Mean Squared Error between the original signal and the denoised signal**"
+md"Calculate the Mean Squared Error between the original signal and the denoised signal"
 
-# ╔═╡ aebc6084-2807-4818-98a0-119275dc4348
-md"MSE between original signal and ACWT denoised signal:"
-
-# ╔═╡ 75b5671e-e5a6-4e27-a963-fe5e3ff045ce
-norm(x_test - r1_test)/length(x_test)
-
-# ╔═╡ 40d91201-6bc8-4baa-8fc9-68efaddcff6e
-md"MSE between original signal and SDWT denoised signal:"
-
-# ╔═╡ e6662cae-ee3b-4fc9-97fc-beb290623375
-norm(x_test - r2_test)/length(x_test)
+# ╔═╡ 18144929-3f31-42b2-9e27-df146a687ae0
+norm(x_test - r_test)/length(x_test)
 
 # ╔═╡ 11e63c9a-6124-4122-9a86-ceed926d25d2
 md"# II. Data Setup"
 
 # ╔═╡ d881753b-0432-451b-8de0-38a0b4b4382a
-md"**Autorun**: Disable before updating parameters!"
+md"**Autorun**: Please disable autorun before updating the experiment parameters, else it will run the entire notebook, which may take a few minutes."
 
 # ╔═╡ 7e94d13e-f84c-433c-bead-3a272c86fc9b
 @bind autorun Radio(["No","Yes"], default = "No")
@@ -234,7 +213,7 @@ md"### 1. Discrete Wavelet Transform"
 # ╔═╡ 01e43234-2194-451d-9010-176aa4799fdb
 begin
 	if autorun == "Yes"
-		Y["DWT"] = cat([dwt(X[:,i], wt) for i in axes(X,2)]..., dims=2)
+		Y["DWT"] = cat([wpt(X[:,i], wt) for i in axes(X,2)]..., dims=2)
 		X̂["DWT"], time["DWT"] = @timed denoiseall(
 			Y["DWT"], :dwt, wt, L=8, dnt=dnt
 		)
@@ -387,7 +366,7 @@ md"### 1.4 Autocorrelation Packet Transform - Best Basis"
 # ╔═╡ 991b273a-9e25-4499-b6ea-4d800ea1e6ae
 begin
 	if autorun == "Yes"
-		acwpt_bt = bestbasistree(Y["ACWPT"], BB(redundant=true))
+		acwpt_bt = bestbasistree(Y["ACWPT"], BB(stationary=true))
 		X̂["ACWPT-BT"], time["ACWPT-BT"] = @timed hcat(
 			[denoise(
 				Y["ACWPT"][:,:,i], :acwpt, wt, tree=acwpt_bt[:,i], dnt=dnt
@@ -408,7 +387,7 @@ md"### 1.5 Autocorrelation Joint Best Basis"
 # ╔═╡ c5a90584-fc46-4f7e-8633-6866001dadf6
 begin
 	if autorun == "Yes"
-		ajbb_tree = bestbasistree(Y["ACWPT"], JBB(redundant=true))
+		ajbb_tree = bestbasistree(Y["ACWPT"], JBB(stationary=true))
 		X̂["ACJBB"], time["ACJBB"] = @timed denoiseall(
 			Y["ACWPT"], :acwpt, wt, tree=ajbb_tree, dnt=dnt
 		)
@@ -476,7 +455,7 @@ md"### 2.4 Stationary Wavelet Packet Transform - Best Basis"
 # ╔═╡ 609937c6-8b9f-4987-8f46-ec55ce05e861
 begin
 	if autorun == "Yes"
-		swpt_bt = bestbasistree(Y["SWPD"], BB(redundant=true))
+		swpt_bt = bestbasistree(Y["SWPD"], BB(stationary=true))
 		X̂["SWPT-BT"], time["SWPT-BT"] = @timed hcat(
 			[denoise(
 				Y["SWPD"][:,:,i], :swpd, wt, tree=swpt_bt[:,i], dnt=dnt
@@ -497,7 +476,7 @@ md"### 2.5 Stationary Joint Best Basis"
 # ╔═╡ 7a6c247e-d765-4299-bd93-8d8271ca711f
 begin
 	if autorun == "Yes"
-		sjbb_tree = bestbasistree(Y["SWPD"], JBB(redundant=true))
+		sjbb_tree = bestbasistree(Y["SWPD"], JBB(stationary=true))
 		X̂["SJBB"], time["SJBB"] = @timed denoiseall(
 			Y["SWPD"], :swpd, wt, tree=sjbb_tree, dnt=dnt
 		)
@@ -546,33 +525,29 @@ end
 # ╟─b0a28618-7cda-4c05-83d2-b54bbca3f9b5
 # ╟─7364da28-6a01-4359-9664-a3097e8bf1f1
 # ╟─458a5a1e-c453-4199-befe-2bf4db6825ae
-# ╟─97f40df0-9ccc-4e41-bebf-4e7188f33fff
+# ╠═97f40df0-9ccc-4e41-bebf-4e7188f33fff
 # ╟─7c0dba17-baf3-4b9c-b1c5-486f7e4515f4
-# ╟─a184ae65-7947-4ffb-b751-8b6e97a8608b
-# ╟─851b04bb-e382-4a0a-98f6-7d4b983ca5ab
+# ╠═a184ae65-7947-4ffb-b751-8b6e97a8608b
+# ╠═851b04bb-e382-4a0a-98f6-7d4b983ca5ab
 # ╟─356d75f4-6cc1-4062-8ef6-3cc6a9c2d9a7
-# ╟─341c2551-b625-47a0-9163-3c0c0e7d4e13
+# ╠═341c2551-b625-47a0-9163-3c0c0e7d4e13
 # ╟─261c2822-edaf-4c66-a032-c17fc2447627
 # ╠═10452433-7123-4006-9e3d-ae4245fefdc5
-# ╠═1ab693e2-edca-4ed7-a366-1103fc9d4202
 # ╟─a663045c-fa0f-49fe-88c2-794450cb7806
-# ╟─9b4ef541-9a36-4bc0-8654-10ab0a4e63b3
+# ╠═9b4ef541-9a36-4bc0-8654-10ab0a4e63b3
 # ╟─4669be94-6c4c-42e2-b9d9-2dc98f1bdaea
-# ╟─aebc6084-2807-4818-98a0-119275dc4348
-# ╟─75b5671e-e5a6-4e27-a963-fe5e3ff045ce
-# ╟─40d91201-6bc8-4baa-8fc9-68efaddcff6e
-# ╟─e6662cae-ee3b-4fc9-97fc-beb290623375
+# ╠═18144929-3f31-42b2-9e27-df146a687ae0
 # ╟─11e63c9a-6124-4122-9a86-ceed926d25d2
 # ╟─d881753b-0432-451b-8de0-38a0b4b4382a
 # ╟─7e94d13e-f84c-433c-bead-3a272c86fc9b
 # ╟─8055194b-2e46-4d18-81c0-0c52bc3eb233
 # ╟─18b5bbe4-ecdd-4209-a764-7c8b1ecbda61
 # ╟─56ee2c61-d83c-4d76-890a-a9bd0d65cee5
-# ╟─c50ac92e-3684-4d0a-a80d-4ee9d74ec992
+# ╠═c50ac92e-3684-4d0a-a80d-4ee9d74ec992
 # ╟─e0a96592-5e77-4c29-9744-31369eea8147
 # ╟─53557a60-90f5-48e6-81ed-5736fc05fec0
 # ╟─c178527f-96a4-4ac7-bb0c-38b73b38c45b
-# ╟─f9a7488d-12a6-45f0-9c70-e67448dfe637
+# ╠═f9a7488d-12a6-45f0-9c70-e67448dfe637
 # ╠═cd9e259e-8bb3-497b-ac7f-f89a003c8032
 # ╟─3246e8b5-251f-4398-b21c-397341f2542e
 # ╠═82e713f8-c870-43d2-a849-e3b401b00459
