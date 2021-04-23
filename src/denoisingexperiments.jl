@@ -748,8 +748,8 @@ wt = wavelet(WT.db4)
 wv = CSV.read("./data/wavelet_test_256.csv", DataFrame)
 
 # compute and save results
-samples = 10
-repeats = 5
+samples = 100
+repeats = 50
 results = Dict{String, DataFrame}()
 results["blocks"] = repeatedcomparisons(wv.blocks, wt, 0.5, 2, samples, repeats)
 CSV.write("./results/blocks.csv", results["blocks"])
