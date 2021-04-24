@@ -91,22 +91,38 @@ md"Plot a histogram of wavelet coefficients"
 # ╔═╡ 341c2551-b625-47a0-9163-3c0c0e7d4e13
 Plots.histogram(vec(abs.(y_test)), legend = false)
 
+# ╔═╡ 9eae2f5c-1f47-43d8-a7ec-0767e50e6a9b
+@bind th_method_test Radio(["Hard", "Soft"], default = "Hard")
+
 # ╔═╡ 261c2822-edaf-4c66-a032-c17fc2447627
 md"Threshold the coefficients using an arbitrary threshold value"
 
-# ╔═╡ 10452433-7123-4006-9e3d-ae4245fefdc5
-threshold!(y_test, HardTH(), 0.5);
+# ╔═╡ dbed8579-afa4-4a4d-b0bb-bd34877fa272
+md"**Select** a threshold value"
 
-# ╔═╡ 1ab693e2-edca-4ed7-a366-1103fc9d4202
-threshold!(z_test, HardTH(), 0.5);
+# ╔═╡ da070fd3-c11e-4421-80b5-45d764a70deb
+@bind th_test Slider(0:0.01:maximum(y_test), default = 0, show_value = true)
+
+# ╔═╡ e49e76e6-7018-4f49-a189-d2fae7df956d
+begin
+	ŷ_test = deepcopy(y_test)
+	ẑ_test = deepcopy(z_test)
+	if th_method_test == "Hard"
+		threshold!(ŷ_test, HardTH(), th_test);
+		threshold!(ẑ_test, SoftTH(), th_test);
+	else
+		threshold!(ŷ_test, SoftTH(), th_test);
+		threshold!(ẑ_test, SoftTH(), th_test);
+	end
+end;
 
 # ╔═╡ a663045c-fa0f-49fe-88c2-794450cb7806
 md"Reconstruct the signal using the thresholded coefficients"
 
 # ╔═╡ 9b4ef541-9a36-4bc0-8654-10ab0a4e63b3
 begin
-	r1_test = iacwt(y_test)
-	r2_test = isdwt(z_test, wavelet(WT.db4))
+	r1_test = iacwt(ŷ_test)
+	r2_test = isdwt(ẑ_test, wavelet(WT.db4))
 	Plots.plot(x_test, label = "original", lc = "black", lw=1.5,
 		title = "Original vs Denoised Signals")
 	Plots.plot!(r1_test, label = "ACWT denoised")
@@ -121,13 +137,13 @@ md"**Calculate the Mean Squared Error between the original signal and the denois
 md"MSE between original signal and ACWT denoised signal:"
 
 # ╔═╡ 75b5671e-e5a6-4e27-a963-fe5e3ff045ce
-norm(x_test - r1_test)/length(x_test)
+round(norm(x_test - r1_test)/length(x_test), digits = 4)
 
 # ╔═╡ 40d91201-6bc8-4baa-8fc9-68efaddcff6e
 md"MSE between original signal and SDWT denoised signal:"
 
 # ╔═╡ e6662cae-ee3b-4fc9-97fc-beb290623375
-norm(x_test - r2_test)/length(x_test)
+round(norm(x_test - r2_test)/length(x_test), digits = 4)
 
 # ╔═╡ 11e63c9a-6124-4122-9a86-ceed926d25d2
 md"# II. Data Setup"
@@ -185,6 +201,24 @@ md"**Select** which type of thresholding to use"
 	default = "HardTH()"
 )
 
+# ╔═╡ abcc5357-98f2-4daf-92da-dc4b250547d0
+md"**Select** shrinking method"
+
+# ╔═╡ f20103a9-60f0-42af-92c6-5a004e46b1d7
+@bind shrink_method Radio(
+	["VisuShrink" => "VisuShrink", "RelErrorShrink" => "Relative Error Shrink"],
+	default = "VisuShrink"
+)
+
+# ╔═╡ 71d1f82a-8f66-4401-bb9d-b7464cc7f827
+md"**Select**: threshold selection method"
+
+# ╔═╡ f95d8b03-b6d7-4070-a4f0-e5633c6fbced
+@bind selection_method Radio(
+	["Individual", "Average", "Median"], 
+	default = "Individual"
+)
+
 # ╔═╡ cd9e259e-8bb3-497b-ac7f-f89a003c8032
 begin
 	x = testdata[!,signal_name]
@@ -201,8 +235,10 @@ md"**Preparing** the data
 
 # ╔═╡ 82e713f8-c870-43d2-a849-e3b401b00459
 begin
-	X₀ = generatesignals(x, 100, 2)
-	X = hcat([addnoise(X₀[:,i], noise_size) for i in axes(X₀,2)]...)
+	if autorun == "Yes"
+		X₀ = generatesignals(x, 100, 2)
+		X = hcat([addnoise(X₀[:,i], noise_size) for i in axes(X₀,2)]...)
+	end
 end
 
 # ╔═╡ 6664a859-4980-4b40-8684-83cf2e7db109
@@ -210,21 +246,34 @@ md"**Baseline**: No denoising"
 
 # ╔═╡ 6b02c425-39b9-467f-9406-3e9096873af4
 begin
-	wt = wavelet(eval(Meta.parse(wavelet_type)))
-	th = eval(Meta.parse(threshold_method))
-	dnt = VisuShrink(256, th)
-	# define variables to store results
-	Y = Dict{String, AbstractArray}()
-	X̂ = Dict{String, AbstractArray}()
-	time = Dict{String, AbstractFloat}()
-	mean_psnr = Dict{String, AbstractFloat}()
-	results = DataFrame(
-		transform = ["None"], 
-		threshold = ["None"],
-		time = 0.0,
-		PSNR = mean([psnr(X[:,i], X₀[:,i]) for i in axes(X,2)])
-	)
+	if autorun == "Yes"
+		wt = wavelet(eval(Meta.parse(wavelet_type)))
+		th = eval(Meta.parse(threshold_method))
+		dnt = Dict(
+			["VisuShrink"=>VisuShrink(256, th), "RelErrorShrink"=>RelErrorShrink()]
+		)
+		# define threshold selection method
+		thselect = Dict(["Average"=>mean,"Median"=>median,"Individual"=>nothing])
+		# define variables to store results
+		Y = Dict{String, AbstractArray}() # Decompositions
+		X̂ = Dict{String, AbstractArray}() 
+		T = Dict{String, AbstractArray}() # Trees
+		σ = Dict{String, AbstractArray}() # Noise estimates
+		time = Dict{String, AbstractFloat}()
+		mean_psnr = Dict{String, AbstractFloat}()
+		results = DataFrame(
+			transform = ["None"], 
+			threshold = ["None"],
+			shrinking = ["None"],
+			selection = ["None"],
+			time = 0.0,
+			PSNR = mean([psnr(X[:,i], X₀[:,i]) for i in axes(X,2)])
+		)
+	end
 end
+
+# ╔═╡ 95081e88-a623-4e91-99c1-8b254b366dac
+md"Once you are satisfied with the selected parameters, enabling the **autorun** option above will prompt the experiment to run."
 
 # ╔═╡ 126c41e7-dd65-46c6-8c5b-2439f5624fd5
 md"# III. Non-Redundant Transforms"
@@ -236,11 +285,36 @@ md"### 1. Discrete Wavelet Transform"
 begin
 	if autorun == "Yes"
 		Y["DWT"] = cat([dwt(X[:,i], wt) for i in axes(X,2)]..., dims=2)
+		
+		if shrink_method == "VisuShrink"
+			σ["DWT"] = [noisest(Y["DWT"][:,i], false) for i in axes(X,2)]
+		else
+			σ["DWT"] = [relerrorthreshold(Y["DWT"][:,i], false) for i in axes(X,2)]
+		end
+		
 		X̂["DWT"], time["DWT"] = @timed denoiseall(
-			Y["DWT"], :dwt, wt, L=8, dnt=dnt
+			Y["DWT"], 
+			:dwt, 
+			wt, 
+			L=8, 
+			estnoise=σ["DWT"],
+			dnt=dnt[shrink_method], 
+			bestTH=thselect[selection_method]
 		)
+		
 		mean_psnr["DWT"] = mean([psnr(X̂["DWT"][:,i], X₀[:,i]) for i in axes(X,2)])
-		push!(results, ["DWT", threshold_method, time["DWT"], mean_psnr["DWT"]])
+		
+		push!(
+			results, 
+			[
+				"DWT", 
+				threshold_method, 
+				shrink_method,
+				selection_method,
+				time["DWT"], 
+				mean_psnr["DWT"]
+			]
+		)
 	end
 end
 
@@ -251,11 +325,39 @@ md"### 2. Wavelet Packet Transform - Level 4"
 begin
 	if autorun == "Yes"
 		Y["WPT-L4"] = cat([wpt(X[:,i], wt, 4) for i in axes(X,2)]..., dims=2)
+		
+		if shrink_method == "VisuShrink"
+			σ["WPT-L4"] = [noisest(Y["WPT-L4"][:,i], false) for i in axes(X,2)]
+		else
+			σ["WPT-L4"] = [
+				relerrorthreshold(Y["WPT-L4"][:,i], false) for i in axes(X,2)]
+		end
+		
 		X̂["WPT-L4"], time["WPT-L4"] = @timed denoiseall(
-			Y["WPT-L4"], :wpt, wt, tree=maketree(256,4,:full), dnt=dnt
+			Y["WPT-L4"], 
+			:wpt, 
+			wt, 
+			tree=maketree(256,4,:full),
+			estnoise=σ["WPT-L4"],
+			dnt=dnt[shrink_method], 
+			bestTH=thselect[selection_method]
 		)
-		mean_psnr["WPT-L4"] = mean([psnr(X̂["WPT-L4"][:,i], X₀[:,i]) for i in axes(X,2)])
-		push!(results, ["WPT-L4", threshold_method, time["WPT-L4"], mean_psnr["WPT-L4"]])
+		
+		mean_psnr["WPT-L4"] = mean(
+			[psnr(X̂["WPT-L4"][:,i], X₀[:,i]) for i in axes(X,2)]
+		)
+		
+		push!(
+			results, 
+			[
+				"WPT-L4", 
+				threshold_method,
+				shrink_method,
+				selection_method,
+				time["WPT-L4"], 
+				mean_psnr["WPT-L4"]
+			]
+		)
 	end
 end
 
@@ -266,11 +368,35 @@ md"### 3. Wavelet Packet Transform - Level 8"
 begin
 	if autorun == "Yes"
 		Y["WPT-L8"] = cat([wpt(X[:,i], wt) for i in axes(X,2)]..., dims=2)
+		
+		if shrink_method == "VisuShrink"
+			σ["WPT-L8"] = [noisest(Y["WPT-L8"][:,i], false) for i in axes(X,2)]
+		else
+			σ["WPT-L8"] = [
+				relerrorthreshold(Y["WPT-L8"][:,i], false) for i in axes(X,2)]
+		end
+		
 		X̂["WPT-L8"], time["WPT-L8"] = @timed denoiseall(
-			Y["WPT-L8"], :wpt, wt, tree=maketree(256,8,:full), dnt=dnt
+			Y["WPT-L8"], 
+			:wpt, 
+			wt, 
+			tree=maketree(256,8,:full), 
+			estnoise=σ["WPT-L8"],
+			dnt=dnt[shrink_method],
+			bestTH=thselect[selection_method]
 		)
 		mean_psnr["WPT-L8"] = mean([psnr(X̂["WPT-L8"][:,i], X₀[:,i]) for i in axes(X,2)])
-		push!(results, ["WPT-L8", threshold_method, time["WPT-L8"], mean_psnr["WPT-L8"]])
+		push!(
+			results, 
+			[
+				"WPT-L8", 
+				threshold_method, 
+				shrink_method,
+				selection_method,
+				time["WPT-L8"], 
+				mean_psnr["WPT-L8"]
+			]
+		)
 	end
 end
 
@@ -281,15 +407,66 @@ md"### 4. Wavelet Packet Transform - Best Basis"
 begin
 	if autorun == "Yes"
 		Y["WPD"] = cat([wpd(X[:,i], wt) for i in axes(X,2)]..., dims=3)
+		
 		wpt_bt = bestbasistree(Y["WPD"], BB())
-		Y["WPT-BT"] = cat([wpt(X[:,i], wt, wpt_bt[:,i]) for i in axes(X,2)]..., dims=2)
-		X̂["WPT-BT"], time["WPT-BT"] = @timed hcat(
-			[denoise(
-				Y["WPT-BT"][:,i], :wpt, wt, tree=wpt_bt[:,i], dnt=dnt) for i in axes(X,2)
-			]...
+		
+		Y["WPT-BT"] = cat(
+			[wpt(X[:,i], wt, wpt_bt[:,i]) for i in axes(X,2)]..., dims=2)
+		
+		if shrink_method == "VisuShrink"
+			σ["WPT-BT"]= [
+				noisest(Y["WPD"][:,:,i], false, wpt_bt[:,i]) for i in axes(X,2)
+			]
+		else
+			σ["WPT-BT"]= [
+				relerrorthreshold(Y["WPD"][:,:,i], false, wpt_bt[:,i]) 
+				for i in axes(X,2)
+			]
+		end
+		
+		if selection_method == "Individual"
+			X̂["WPT-BT"], time["WPT-BT"] = @timed hcat(
+				[
+					denoise(
+						Y["WPT-BT"][:,i], 
+						:wpt, 
+						wt, 
+						tree=wpt_bt[:,i], 
+						dnt=dnt[shrink_method], 
+						estnoise=σ["WPT-BT"][i]
+						) for i in axes(X,2)
+				]...
+			)
+		else
+			X̂["WPT-BT"], time["WPT-BT"] = @timed hcat(
+				[
+					denoise(
+						Y["WPT-BT"][:,i], 
+						:wpt, 
+						wt, 
+						tree=wpt_bt[:,i], 
+						dnt=dnt[shrink_method], 
+						estnoise=(σ["WPT-BT"]|>thselect[selection_method])
+					) for i in axes(X,2)
+				]...
+			)
+		end
+		
+		mean_psnr["WPT-BT"] = mean(
+			[psnr(X̂["WPT-BT"][:,i], X₀[:,i]) for i in axes(X,2)]
 		)
-		mean_psnr["WPT-BT"] = mean([psnr(X̂["WPT-BT"][:,i], X₀[:,i]) for i in axes(X,2)])
-		push!(results, ["WPT-BT", threshold_method, time["WPT-BT"], mean_psnr["WPT-BT"]])
+		
+		push!(
+			results, 
+			[
+				"WPT-BT", 
+				threshold_method,
+				shrink_method,
+				selection_method,
+				time["WPT-BT"], 
+				mean_psnr["WPT-BT"]
+			]
+		)
 	end
 end
 
@@ -300,12 +477,43 @@ md"### 5. Joint Best Basis"
 begin
 	if autorun == "Yes"
 		jbb_tree = bestbasistree(Y["WPD"], JBB())
+		
 		Y["JBB"] = cat([wpt(X[:,i], wt, jbb_tree) for i in axes(X,2)]..., dims=2)
+		
+		if shrink_method == "VisuShrink"
+			σ["JBB"]= [
+				noisest(Y["JBB"][:,i], false, jbb_tree) for i in axes(X,2)
+			]
+		else
+			σ["JBB"]= [
+				relerrorthreshold(Y["JBB"][:,i], false, jbb_tree) 
+				for i in axes(X,2)
+			]
+		end
+		
 		X̂["JBB"], time["JBB"] = @timed denoiseall(
-			Y["JBB"], :wpt, wt, tree=jbb_tree, dnt=dnt
+			Y["JBB"], 
+			:wpt, 
+			wt, 
+			tree=jbb_tree, 
+			estnoise=σ["JBB"],
+			dnt=dnt[shrink_method],
+			bestTH=thselect[selection_method]
 		)
+		
 		mean_psnr["JBB"] = mean([psnr(X̂["JBB"][:,i], X₀[:,i]) for i in axes(X,2)])
-		push!(results, ["JBB", threshold_method, time["JBB"], mean_psnr["JBB"]])
+		
+		push!(
+			results, 
+			[
+				"JBB", 
+				threshold_method, 
+				shrink_method,
+				selection_method,
+				time["JBB"], 
+				mean_psnr["JBB"]
+			]
+		)
 	end
 end
 
@@ -316,12 +524,43 @@ md"### 6. Least Statistically Dependent Basis"
 begin 
 	if autorun == "Yes"
 		lsdb_tree = bestbasistree(Y["WPD"], LSDB())
+		
 		Y["LSDB"] = cat([wpt(X[:,i], wt, lsdb_tree) for i in axes(X,2)]..., dims=2)
+		
+		if shrink_method == "VisuShrink"
+			σ["LSDB"]= [
+				noisest(Y["LSDB"][:,i], false, lsdb_tree) for i in axes(X,2)
+			]
+		else
+			σ["LSDB"]= [
+				relerrorthreshold(Y["LSDB"][:,i], false, lsdb_tree[:,i]) 
+				for i in axes(X,2)
+			]
+		end
+		
 		X̂["LSDB"], time["LSDB"] = @timed denoiseall(
-			Y["LSDB"], :wpt, wt, tree=lsdb_tree, dnt=dnt
+			Y["LSDB"], 
+			:wpt, 
+			wt, 
+			tree=lsdb_tree, 
+			estnoise=σ["LSDB"],
+			dnt=dnt[shrink_method],
+			bestTH=thselect[selection_method]
 		)
+		
 		mean_psnr["LSDB"] = mean([psnr(X̂["LSDB"][:,i], X₀[:,i]) for i in axes(X,2)])
-		push!(results, ["LSDB", threshold_method, time["LSDB"], mean_psnr["LSDB"]])
+		
+		push!(
+			results, 
+			[
+				"LSDB", 
+				threshold_method, 
+				shrink_method,
+				selection_method,
+				time["LSDB"], 
+				mean_psnr["LSDB"]
+			]
+		)
 	end
 end
 
@@ -338,11 +577,38 @@ md"### 1.1 Autocorrelation Discrete Wavelet Transform"
 begin
 	if autorun == "Yes"
 		Y["ACWT"] = cat([acwt(X[:,i], wt) for i in axes(X,2)]..., dims=3)
+		
+		if shrink_method == "VisuShrink"
+			σ["ACWT"] = [noisest(Y["ACWT"][:,:,i], true) for i in axes(X,2)]
+		else
+			σ["ACWT"] = [
+				relerrorthreshold(Y["ACWT"][:,:,i], true) for i in axes(X,2)]
+		end
+		
+		
 		X̂["ACWT"], time["ACWT"] = @timed denoiseall(
-			Y["ACWT"], :acwt, wt, L=8, dnt=dnt
+			Y["ACWT"], 
+			:acwt, 
+			wt, 
+			L=8, 
+			dnt=dnt[shrink_method],
+			estnoise=σ["ACWT"],
+			bestTH=thselect[selection_method]
 		)
+		
 		mean_psnr["ACWT"] = mean([psnr(X̂["ACWT"][:,i], X₀[:,i]) for i in axes(X,2)])
-		push!(results, ["ACWT", threshold_method, time["ACWT"], mean_psnr["ACWT"]])
+		
+		push!(
+			results, 
+			[
+				"ACWT", 
+				threshold_method, 
+				shrink_method,
+				selection_method,
+				time["ACWT"], 
+				mean_psnr["ACWT"]
+			]
+		)
 	end
 end
 
@@ -352,14 +618,45 @@ md"### 1.2 Autocorrelation Packet Transform - Level 4"
 # ╔═╡ c52bd741-00cb-4cf2-97e3-b8dbba3af9ad
 begin
 	if autorun == "Yes"
-		Y["ACWPT"] = cat([acwpt(X[:,i], wt) for i in axes(X,2)]..., dims=3)
+		Y["ACWPT"] = cat([acwpt(X[:,i], wt, 8) for i in axes(X,2)]..., dims=3)
+		
+		T["ACWPT-L4"] = maketree(256,4,:full)
+		
+		if shrink_method == "VisuShrink"
+			σ["ACWPT-L4"] = [
+				noisest(Y["ACWPT"][:,:,i], true, T["ACWPT-L4"]) for i in axes(X,2)
+			]
+		else
+			σ["ACWPT-L4"] = [
+				relerrorthreshold(Y["ACWPT"][:,:,i], true, T["ACWPT-L4"]) 
+				for i in axes(X,2)
+			]
+		end
+		
 		X̂["ACWPT-L4"], time["ACWPT-L4"] = @timed denoiseall(
-			Y["ACWPT"], :acwpt, wt, tree=maketree(256,4,:full), dnt=dnt
+			Y["ACWPT"], 
+			:acwpt, 
+			wt, 
+			tree=T["ACWPT-L4"], 
+			estnoise=σ["ACWPT-L4"],
+			dnt=dnt[shrink_method],
+			bestTH=thselect[selection_method]
 		)
-		mean_psnr["ACWPT-L4"] = mean([psnr(X̂["ACWPT-L4"][:,i], X₀[:,i]) for i in axes(X,2)])
+		
+		mean_psnr["ACWPT-L4"] = mean(
+			[psnr(X̂["ACWPT-L4"][:,i], X₀[:,i]) for i in axes(X,2)]
+		)
+		
 		push!(
 			results, 
-			["ACWPT-L4", threshold_method, time["ACWPT-L4"], mean_psnr["ACWPT-L4"]]
+			[
+				"ACWPT-L4", 
+				threshold_method,
+				shrink_method,
+				selection_method,
+				time["ACWPT-L4"], 
+				mean_psnr["ACWPT-L4"]
+			]
 		)
 	end
 end
@@ -370,14 +667,43 @@ md"### 1.3 Autocorrelation Packet Transform - Level 8"
 # ╔═╡ 250d22dd-1d15-45d4-8aa4-3de1f37b164c
 begin
 	if autorun == "Yes"
-		Y["ACWPT"] = cat([acwpt(X[:,i], wt) for i in axes(X,2)]..., dims=3)
+		T["ACWPT-L8"] = maketree(256,8,:full)
+		
+		if shrink_method == "VisuShrink"
+			σ["ACWPT-L8"] = [
+				noisest(Y["ACWPT"][:,:,i], true, T["ACWPT-L8"]) for i in axes(X,2)
+			]
+		else
+			σ["ACWPT-L8"] = [
+				relerrorthreshold(Y["ACWPT"][:,:,i], true, T["ACWPT-L8"]) 
+				for i in axes(X,2)
+			]
+		end
+		
 		X̂["ACWPT-L8"], time["ACWPT-L8"] = @timed denoiseall(
-			Y["ACWPT"], :acwpt, wt, tree=maketree(256,8,:full), dnt=dnt
+			Y["ACWPT"], 
+			:acwpt, 
+			wt, 
+			tree=tree=T["ACWPT-L8"], 
+			estnoise=σ["ACWPT-L8"],
+			dnt=dnt[shrink_method],
+			bestTH=thselect[selection_method]
 		)
-		mean_psnr["ACWPT-L8"] = mean([psnr(X̂["ACWPT-L8"][:,i], X₀[:,i]) for i in axes(X,2)])
+		
+		mean_psnr["ACWPT-L8"] = mean(
+			[psnr(X̂["ACWPT-L8"][:,i], X₀[:,i]) for i in axes(X,2)]
+		)
+		
 		push!(
 			results, 
-			["ACWPT-L8", threshold_method, time["ACWPT-L8"], mean_psnr["ACWPT-L8"]]
+			[
+				"ACWPT-L8", 
+				threshold_method,
+				shrink_method,
+				selection_method,
+				time["ACWPT-L8"], 
+				mean_psnr["ACWPT-L8"]
+			]
 		)
 	end
 end
@@ -385,20 +711,65 @@ end
 # ╔═╡ 7d057183-c8b2-4ebd-9ee9-aa7998d9a6d5
 md"### 1.4 Autocorrelation Packet Transform - Best Basis"
 
-# ╔═╡ 991b273a-9e25-4499-b6ea-4d800ea1e6ae
+# ╔═╡ e484c5ca-1e21-4cc2-b1a6-7e1aa7958952
 begin
 	if autorun == "Yes"
 		acwpt_bt = bestbasistree(Y["ACWPT"], BB(redundant=true))
-		X̂["ACWPT-BT"], time["ACWPT-BT"] = @timed hcat(
-			[denoise(
-				Y["ACWPT"][:,:,i], :acwpt, wt, tree=acwpt_bt[:,i], dnt=dnt
-				) for i in axes(X,2)
-			]...
+		
+		if shrink_method == "VisuShrink"
+			σ["ACWPT-BT"] = [
+				noisest(Y["ACWPT"][:,:,i], true, acwpt_bt[:,i]) for i in 1:size(X,2)
+			]
+		else
+			σ["ACWPT-BT"] = [
+				relerrorthreshold(Y["ACWPT"][:,:,i], true, acwpt_bt[:,i]) 
+				for i in 1:size(X,2)
+			]
+		end
+		
+		
+		if selection_method == "Individual"
+			X̂["ACWPT-BT"], time["ACWPT-BT"] = @timed hcat(
+				[
+					denoise(
+						Y["ACWPT"][:,:,i], 
+						:acwpt, 
+						wt, 
+						tree=acwpt_bt[:,i], 
+						dnt=dnt[shrink_method],
+						estnoise=σ["ACWPT-BT"][i]
+					) for i in axes(X,2)
+				]...
+			)
+		else
+			X̂["ACWPT-BT"], time["ACWPT-BT"] = @timed hcat(
+				[
+					denoise(
+						Y["ACWPT"][:,:,i], 
+						:acwpt, 
+						wt, 
+						tree=acwpt_bt[:,i], 
+						dnt=dnt[shrink_method],
+						estnoise=(σ["ACWPT-BT"]|>thselect[selection_method])
+					) for i in axes(X,2)
+				]...
+			)
+		end
+		
+		mean_psnr["ACWPT-BT"] = mean(
+			[psnr(X̂["ACWPT-BT"][:,i], X₀[:,i]) for i in axes(X,2)]
 		)
-		mean_psnr["ACWPT-BT"] = mean([psnr(X̂["ACWPT-BT"][:,i], X₀[:,i]) for i in axes(X,2)])
+		
 		push!(
 			results, 
-			["ACWPT-BT", threshold_method, time["ACWPT-BT"], mean_psnr["ACWPT-BT"]]
+			[
+				"ACWPT-BT", 
+				threshold_method, 
+				shrink_method,
+				selection_method,
+				time["ACWPT-BT"], 
+				mean_psnr["ACWPT-BT"]
+			]
 		)
 	end
 end
@@ -410,11 +781,43 @@ md"### 1.5 Autocorrelation Joint Best Basis"
 begin
 	if autorun == "Yes"
 		ajbb_tree = bestbasistree(Y["ACWPT"], JBB(redundant=true))
+		
+		if shrink_method == "VisuShrink"
+			σ["ACJBB"] = [
+				noisest(Y["ACWPT"][:,:,i], true, ajbb_tree) for i in 1:size(X,2)
+			]
+		else
+			σ["ACJBB"] = [
+				relerrorthreshold(Y["ACWPT"][:,:,i], true, ajbb_tree) 
+				for i in 1:size(X,2)
+			]
+		end
+		
 		X̂["ACJBB"], time["ACJBB"] = @timed denoiseall(
-			Y["ACWPT"], :acwpt, wt, tree=ajbb_tree, dnt=dnt
+			Y["ACWPT"], 
+			:acwpt, 
+			wt, 
+			tree=ajbb_tree, 
+			estnoise=σ["ACJBB"],
+			dnt=dnt[shrink_method],
+			bestTH=thselect[selection_method]
 		)
-		mean_psnr["ACJBB"] = mean([psnr(X̂["ACJBB"][:,i], X₀[:,i]) for i in axes(X,2)])
-		push!(results, ["ACJBB", threshold_method, time["ACJBB"], mean_psnr["ACJBB"]])
+		
+		mean_psnr["ACJBB"] = mean(
+			[psnr(X̂["ACJBB"][:,i], X₀[:,i]) for i in axes(X,2)]
+		)
+		
+		push!(
+			results, 
+			[
+				"ACJBB", 
+				threshold_method, 
+				shrink_method,
+				selection_method,
+				time["ACJBB"], 
+				mean_psnr["ACJBB"]
+			]
+		)
 	end
 end
 
@@ -426,13 +829,39 @@ md"### 2.1 Stationary Discrete Wavelet Transform"
 
 # ╔═╡ ab9b089f-fbb7-4436-8d6a-963db1e95670
 begin
-	if autorun == "Yes"
+	if autorun == "Yes"		
 		Y["SDWT"] = cat([sdwt(X[:,i], wt) for i in axes(X,2)]..., dims=3)
+		
+		if shrink_method == "VisuShrink"
+			σ["SDWT"] = [noisest(Y["SDWT"][:,:,i], true) for i in axes(X,2)]
+		else
+			σ["SDWT"] = [
+				relerrorthreshold(Y["SDWT"][:,:,i], true) for i in axes(X,2)]
+		end
+		
 		X̂["SDWT"], time["SDWT"] = @timed denoiseall(
-			Y["SDWT"], :sdwt, wt, L=8, dnt=dnt
+			Y["SDWT"], 
+			:sdwt, 
+			wt, 
+			L=8, 
+			estnoise=σ["SDWT"],
+			dnt=dnt[shrink_method],
+			bestTH=thselect[selection_method]
 		)
+		
 		mean_psnr["SDWT"] = mean([psnr(X̂["SDWT"][:,i], X₀[:,i]) for i in axes(X,2)])
-		push!(results, ["SDWT", threshold_method, time["SDWT"], mean_psnr["SDWT"]])
+		
+		push!(
+			results, 
+			[
+				"SDWT", 
+				threshold_method, 
+				shrink_method,
+				selection_method,
+				time["SDWT"], 
+				mean_psnr["SDWT"]
+			]
+		)
 	end
 end
 
@@ -442,14 +871,46 @@ md"### 2.2 Stationary Wavelet Packet Transform - Level 4"
 # ╔═╡ 6d09613a-5676-4b45-bf44-7e2c40bb71c9
 begin
 	if autorun == "Yes"
+		T["SWPT-L4"] = maketree(256,4,:full)
+		
 		Y["SWPD"] = cat([swpd(X[:,i], wt) for i in axes(X,2)]..., dims=3)
+		
+		if shrink_method == "VisuShrink"
+			σ["SWPT-L4"] = [
+				noisest(Y["SWPD"][:,:,i], true, T["SWPT-L4"]) for i in axes(X,2)
+			]
+		else
+			σ["SWPT-L4"] = [
+				relerrorthreshold(Y["SWPD"][:,:,i], true, T["SWPT-L4"]) 
+				for i in axes(X,2)
+			]
+		end
+		
+		
 		X̂["SWPT-L4"], time["SWPT-L4"] = @timed denoiseall(
-			Y["SWPD"], :swpd, wt, tree=maketree(256,4,:full), dnt=dnt
+			Y["SWPD"], 
+			:swpd, 
+			wt, 
+			tree=maketree(256,4,:full), 
+			estnoise=σ["SWPT-L4"],
+			dnt=dnt[shrink_method],
+			bestTH=thselect[selection_method]
 		)
-		mean_psnr["SWPT-L4"] = mean([psnr(X̂["SWPT-L4"][:,i], X₀[:,i]) for i in axes(X,2)])
+		
+		mean_psnr["SWPT-L4"] = mean(
+			[psnr(X̂["SWPT-L4"][:,i], X₀[:,i]) for i in axes(X,2)]
+		)
+		
 		push!(
 			results, 
-			["SWPT-L4", threshold_method, time["SWPT-L4"], mean_psnr["SWPT-L4"]]
+			[
+				"SWPT-L4", 
+				threshold_method,
+				shrink_method,
+				selection_method,
+				time["SWPT-L4"], 
+				mean_psnr["SWPT-L4"]
+			]
 		)
 	end
 end
@@ -460,13 +921,43 @@ md"### 2.3 Stationary Wavelet Packet Transform - Level 8"
 # ╔═╡ 3525a716-0210-4cd2-b780-3f1c27297e09
 begin
 	if autorun == "Yes"
+		T["SWPT-L8"] = maketree(256,8,:full)
+		
+		if shrink_method == "VisuShrink"
+			σ["SWPT-L8"] = [
+				noisest(Y["SWPD"][:,:,i], true, T["SWPT-L8"]) for i in axes(X,2)
+			]
+		else
+			σ["SWPT-L8"] = [
+				relerrorthreshold(Y["SWPD"][:,:,i], true, T["SWPT-L8"]) 
+				for i in axes(X,2)
+			]
+		end
+		
 		X̂["SWPT-L8"], time["SWPT-L8"] = @timed denoiseall(
-			Y["SWPD"], :swpd, wt, tree=maketree(256,8,:full), dnt=dnt
+			Y["SWPD"], 
+			:swpd, 
+			wt, 
+			tree=maketree(256,8,:full), 
+			estnoise=σ["SWPT-L8"],
+			dnt=dnt[shrink_method],
+			bestTH=thselect[selection_method]
 		)
-		mean_psnr["SWPT-L8"] = mean([psnr(X̂["SWPT-L8"][:,i], X₀[:,i]) for i in axes(X,2)])
+		
+		mean_psnr["SWPT-L8"] = mean(
+			[psnr(X̂["SWPT-L8"][:,i], X₀[:,i]) for i in axes(X,2)]
+		)
+		
 		push!(
 			results, 
-			["SWPT-L8", threshold_method, time["SWPT-L8"], mean_psnr["SWPT-L8"]]
+			[
+				"SWPT-L8", 
+				threshold_method, 
+				shrink_method,
+				selection_method,
+				time["SWPT-L8"], 
+				mean_psnr["SWPT-L8"]
+			]
 		)
 	end
 end
@@ -478,16 +969,60 @@ md"### 2.4 Stationary Wavelet Packet Transform - Best Basis"
 begin
 	if autorun == "Yes"
 		swpt_bt = bestbasistree(Y["SWPD"], BB(redundant=true))
-		X̂["SWPT-BT"], time["SWPT-BT"] = @timed hcat(
-			[denoise(
-				Y["SWPD"][:,:,i], :swpd, wt, tree=swpt_bt[:,i], dnt=dnt
-				) for i in axes(X,2)
-			]...
+		
+		if shrink_method == "VisuShrink"
+			σ["SWPT-BT"] = [
+				noisest(Y["SWPD"][:,:,i], true, swpt_bt[:,i]) for i in axes(X,2)
+			]
+		else
+			σ["SWPT-BT"] = [
+				relerrorthreshold(Y["SWPD"][:,:,i], true, swpt_bt[:,i]) 
+				for i in axes(X,2)
+			]
+		end
+		
+		if selection_method == "Individual"
+			X̂["SWPT-BT"], time["SWPT-BT"] = @timed hcat(
+				[
+					denoise(
+						Y["SWPD"][:,:,i], 
+						:swpd, 
+						wt, 
+						tree=swpt_bt[:,i], 
+						dnt=dnt[shrink_method],
+						estnoise=σ["SWPT-BT"][i]
+					) for i in axes(X,2)
+				]...
+			)
+		else
+			X̂["SWPT-BT"], time["SWPT-BT"] = @timed hcat(
+				[
+					denoise(
+						Y["SWPD"][:,:,i], 
+						:swpd, 
+						wt, 
+						tree=swpt_bt[:,i], 
+						dnt=dnt[shrink_method],
+						estnoise=(σ["SWPT-BT"]|>thselect[selection_method])
+					) for i in axes(X,2)
+				]...
+			)
+		end
+		
+		mean_psnr["SWPT-BT"] = mean(
+			[psnr(X̂["SWPT-BT"][:,i], X₀[:,i]) for i in axes(X,2)]
 		)
-		mean_psnr["SWPT-BT"] = mean([psnr(X̂["SWPT-BT"][:,i], X₀[:,i]) for i in axes(X,2)])
+		
 		push!(
 			results, 
-			["SWPT-BT", threshold_method, time["SWPT-BT"], mean_psnr["SWPT-BT"]]
+			[
+				"SWPT-BT", 
+				threshold_method, 
+				shrink_method,
+				selection_method,
+				time["SWPT-BT"], 
+				mean_psnr["SWPT-BT"]
+			]
 		)
 	end
 end
@@ -499,11 +1034,41 @@ md"### 2.5 Stationary Joint Best Basis"
 begin
 	if autorun == "Yes"
 		sjbb_tree = bestbasistree(Y["SWPD"], JBB(redundant=true))
+		
+		if shrink_method == "VisuShrink"
+			σ["SJBB"] = [
+				noisest(Y["SWPD"][:,:,i], true, sjbb_tree) for i in axes(X,2)
+			]
+		else
+			σ["SJBB"] = [
+				relerrorthreshold(Y["SWPD"][:,:,i], true, sjbb_tree) 
+				for i in axes(X,2)
+			]
+		end
+		
+		
 		X̂["SJBB"], time["SJBB"] = @timed denoiseall(
-			Y["SWPD"], :swpd, wt, tree=sjbb_tree, dnt=dnt
+			Y["SWPD"], 
+			:swpd, 
+			wt, 
+			estnoise=σ["SJBB"],
+			tree=sjbb_tree, 
+			dnt=dnt[shrink_method]
 		)
+		
 		mean_psnr["SJBB"] = mean([psnr(X̂["SJBB"][:,i], X₀[:,i]) for i in axes(X,2)])
-		push!(results, ["SJBB", threshold_method, time["SJBB"], mean_psnr["SJBB"]])
+		
+		push!(
+			results, 
+			[
+				"SJBB", 
+				threshold_method, 
+				shrink_method,
+				selection_method,
+				time["SJBB"],
+				mean_psnr["SJBB"]
+			]
+		)
 	end
 end
 
@@ -577,9 +1142,11 @@ end
 # ╟─851b04bb-e382-4a0a-98f6-7d4b983ca5ab
 # ╟─356d75f4-6cc1-4062-8ef6-3cc6a9c2d9a7
 # ╟─341c2551-b625-47a0-9163-3c0c0e7d4e13
+# ╟─9eae2f5c-1f47-43d8-a7ec-0767e50e6a9b
 # ╟─261c2822-edaf-4c66-a032-c17fc2447627
-# ╠═10452433-7123-4006-9e3d-ae4245fefdc5
-# ╠═1ab693e2-edca-4ed7-a366-1103fc9d4202
+# ╟─dbed8579-afa4-4a4d-b0bb-bd34877fa272
+# ╟─da070fd3-c11e-4421-80b5-45d764a70deb
+# ╟─e49e76e6-7018-4f49-a189-d2fae7df956d
 # ╟─a663045c-fa0f-49fe-88c2-794450cb7806
 # ╟─9b4ef541-9a36-4bc0-8654-10ab0a4e63b3
 # ╟─4669be94-6c4c-42e2-b9d9-2dc98f1bdaea
@@ -597,12 +1164,17 @@ end
 # ╟─e0a96592-5e77-4c29-9744-31369eea8147
 # ╟─53557a60-90f5-48e6-81ed-5736fc05fec0
 # ╟─c178527f-96a4-4ac7-bb0c-38b73b38c45b
-# ╟─f9a7488d-12a6-45f0-9c70-e67448dfe637
-# ╠═cd9e259e-8bb3-497b-ac7f-f89a003c8032
+# ╠═f9a7488d-12a6-45f0-9c70-e67448dfe637
+# ╟─abcc5357-98f2-4daf-92da-dc4b250547d0
+# ╠═f20103a9-60f0-42af-92c6-5a004e46b1d7
+# ╟─71d1f82a-8f66-4401-bb9d-b7464cc7f827
+# ╟─f95d8b03-b6d7-4070-a4f0-e5633c6fbced
+# ╟─cd9e259e-8bb3-497b-ac7f-f89a003c8032
 # ╟─3246e8b5-251f-4398-b21c-397341f2542e
 # ╠═82e713f8-c870-43d2-a849-e3b401b00459
 # ╟─6664a859-4980-4b40-8684-83cf2e7db109
 # ╠═6b02c425-39b9-467f-9406-3e9096873af4
+# ╟─95081e88-a623-4e91-99c1-8b254b366dac
 # ╟─126c41e7-dd65-46c6-8c5b-2439f5624fd5
 # ╟─17bdc97a-4a0b-4931-a5c6-866f0c814601
 # ╠═01e43234-2194-451d-9010-176aa4799fdb
@@ -625,7 +1197,7 @@ end
 # ╟─a4b3694e-2ca5-46a5-b1ce-44c2f7ec2006
 # ╠═250d22dd-1d15-45d4-8aa4-3de1f37b164c
 # ╟─7d057183-c8b2-4ebd-9ee9-aa7998d9a6d5
-# ╠═991b273a-9e25-4499-b6ea-4d800ea1e6ae
+# ╠═e484c5ca-1e21-4cc2-b1a6-7e1aa7958952
 # ╟─084decfb-5c6f-466d-a5f8-ddf8cc863d8c
 # ╠═c5a90584-fc46-4f7e-8633-6866001dadf6
 # ╟─cb927f51-99f2-4eeb-a0e5-5f1c65464b6f
@@ -642,5 +1214,5 @@ end
 # ╟─7103af68-9ad7-4b81-8c21-c8b6d7c9f5be
 # ╟─9818ca36-0acc-4cc3-924e-8b50813c1da1
 # ╟─1682b2eb-b68c-4182-986b-d921fcfc039d
-# ╟─0944c544-006a-45cc-b4c9-ad5bf6877ca3
+# ╠═0944c544-006a-45cc-b4c9-ad5bf6877ca3
 # ╠═56c7a1b9-c75f-48d8-a602-c219a2f432af

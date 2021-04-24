@@ -86,18 +86,41 @@ md"Plot a histogram of wavelet coefficients"
 # ╔═╡ 341c2551-b625-47a0-9163-3c0c0e7d4e13
 Plots.histogram(vec(abs.(y_test)), legend = false)
 
-# ╔═╡ 261c2822-edaf-4c66-a032-c17fc2447627
-md"Threshold the coefficients using an arbitrary threshold value"
+# ╔═╡ df009392-255d-4662-808e-1c99d6215545
+function coef_threshold(x::AbstractArray{T}, TH::Wavelets.Threshold.THType, t=0) where T <: Number
+	y = deepcopy(x)
+	return threshold!(y, TH, t)
+end
 
-# ╔═╡ 10452433-7123-4006-9e3d-ae4245fefdc5
-threshold!(y_test, HardTH(), 0.3);
+# ╔═╡ 8b580a81-5675-41f0-b183-1c0963655ee4
+md"**Adjust** the slider value below to threshold the wavelet coefficients."
+
+# ╔═╡ af1bd0a3-024f-468a-98ad-305760fe2d5a
+@bind thresh Slider(0:0.01:maximum(y_test), default = 0, show_value = true)
+
+# ╔═╡ 07e51942-251a-473f-b101-e6f0b8ddd845
+md"**Choose** between hard thresholding and soft thresholding"
+
+# ╔═╡ b06cdc04-00f8-4276-af46-5f17bd65569c
+@bind threshold_method_test Radio(
+		["Hard", "Soft"], default = "Hard"
+	)
+
+# ╔═╡ 6bf00fbe-ebfe-45f4-9904-1dde11b42f2a
+begin
+	if threshold_method_test == "Hard"
+		y_thresholded = coef_threshold(y_test, HardTH(), thresh);
+	else
+		y_thresholded = coef_threshold(y_test, SoftTH(), thresh);
+	end
+end;
 
 # ╔═╡ a663045c-fa0f-49fe-88c2-794450cb7806
-md"Reconstruct the signal using the thresholded coefficients"
+md"Use the inverse wavelet transform to reconstruct the signal using the thresholded coefficients"
 
 # ╔═╡ 9b4ef541-9a36-4bc0-8654-10ab0a4e63b3
 begin
-	r_test = iacwt(y_test)
+	r_test = iacwt(y_thresholded)
 	Plots.plot(x_test, label = "original")
 	Plots.plot!(r_test, label = "denoised")
 end
@@ -531,10 +554,14 @@ end
 # ╠═851b04bb-e382-4a0a-98f6-7d4b983ca5ab
 # ╟─356d75f4-6cc1-4062-8ef6-3cc6a9c2d9a7
 # ╠═341c2551-b625-47a0-9163-3c0c0e7d4e13
-# ╟─261c2822-edaf-4c66-a032-c17fc2447627
-# ╠═10452433-7123-4006-9e3d-ae4245fefdc5
+# ╠═df009392-255d-4662-808e-1c99d6215545
+# ╟─8b580a81-5675-41f0-b183-1c0963655ee4
+# ╠═af1bd0a3-024f-468a-98ad-305760fe2d5a
+# ╠═07e51942-251a-473f-b101-e6f0b8ddd845
+# ╠═b06cdc04-00f8-4276-af46-5f17bd65569c
+# ╠═6bf00fbe-ebfe-45f4-9904-1dde11b42f2a
 # ╟─a663045c-fa0f-49fe-88c2-794450cb7806
-# ╠═9b4ef541-9a36-4bc0-8654-10ab0a4e63b3
+# ╟─9b4ef541-9a36-4bc0-8654-10ab0a4e63b3
 # ╟─4669be94-6c4c-42e2-b9d9-2dc98f1bdaea
 # ╠═18144929-3f31-42b2-9e27-df146a687ae0
 # ╟─11e63c9a-6124-4122-9a86-ceed926d25d2
