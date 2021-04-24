@@ -239,7 +239,7 @@ begin
 		X₀ = generatesignals(x, 100, 2)
 		X = hcat([addnoise(X₀[:,i], noise_size) for i in axes(X₀,2)]...)
 	end
-end
+end;
 
 # ╔═╡ 6664a859-4980-4b40-8684-83cf2e7db109
 md"**Baseline**: No denoising"
@@ -250,7 +250,7 @@ begin
 		wt = wavelet(eval(Meta.parse(wavelet_type)))
 		th = eval(Meta.parse(threshold_method))
 		dnt = Dict(
-			["VisuShrink"=>VisuShrink(256, th), "RelErrorShrink"=>RelErrorShrink()]
+			["VisuShrink"=>VisuShrink(256, th), "RelErrorShrink"=>RelErrorShrink(th)]
 		)
 		# define threshold selection method
 		thselect = Dict(["Average"=>mean,"Median"=>median,"Individual"=>nothing])
@@ -1166,7 +1166,7 @@ end
 # ╟─e0a96592-5e77-4c29-9744-31369eea8147
 # ╟─53557a60-90f5-48e6-81ed-5736fc05fec0
 # ╟─c178527f-96a4-4ac7-bb0c-38b73b38c45b
-# ╠═f9a7488d-12a6-45f0-9c70-e67448dfe637
+# ╟─f9a7488d-12a6-45f0-9c70-e67448dfe637
 # ╟─abcc5357-98f2-4daf-92da-dc4b250547d0
 # ╠═f20103a9-60f0-42af-92c6-5a004e46b1d7
 # ╟─71d1f82a-8f66-4401-bb9d-b7464cc7f827
