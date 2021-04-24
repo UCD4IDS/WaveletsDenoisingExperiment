@@ -1105,9 +1105,11 @@ $(@bind sortorder Radio(["true" => "Decreasing", "false" => "Increasing"],
 
 # ╔═╡ 0944c544-006a-45cc-b4c9-ad5bf6877ca3
 begin
-	column = eval(Meta.parse(sortby))
-	ascending = eval(Meta.parse(sortorder))
-	first(sort!(results, [column], rev=ascending), topN)
+	if autorun == "Yes"
+		column = eval(Meta.parse(sortby))
+		ascending = eval(Meta.parse(sortorder))
+		first(sort!(results, [column], rev=ascending), topN)
+	end
 end
 
 # ╔═╡ 56c7a1b9-c75f-48d8-a602-c219a2f432af
