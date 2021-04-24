@@ -9,7 +9,7 @@ This experiment is conducted by Zeng Fung Liew and Shozen Dan under the supervis
 ## Table of Contents
 1. [Code for denoising experiment](src/denoisingexperiments.jl)
 2. [Code for denoising analysis](src/denoisinganalysis.jl)
-3. [Pluto notebook containing results and report](notebooks/denoisingnotebook.jl)
+3. [Pluto notebook containing results and report](notebooks/denoising.jl)
 
 ## How to Open and Run Pluto Notebook
 ### Method 1: Opening notebook directly without downloading any files
@@ -27,7 +27,7 @@ julia> using Pkg; Pkg.add("Pluto")
 julia> import Pluto; Pluto.run()
 ```
 4. Pluto should open up in the default browser. Copy-paste the following URL into the file path:  
-[https://github.com/zengfung/WaveletsDenoisingExperiment/blob/master/notebooks/denoisingnotebook.jl](https://github.com/zengfung/WaveletsDenoisingExperiment/blob/master/notebooks/denoisingnotebook.jl)
+[https://github.com/zengfung/WaveletsDenoisingExperiment/blob/master/notebooks/denoising.jl](https://github.com/zengfung/WaveletsDenoisingExperiment/blob/master/notebooks/denoising.jl)
 
 ### Method 2 (**Recommended**): Opening notebook after cloning this repository
 1. Open up the Julia REPL.
