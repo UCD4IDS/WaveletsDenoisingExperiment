@@ -1,0 +1,2545 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:gadfly="http://www.gadflyjl.org/ns"
+     version="1.2"
+     width="254mm" height="177.8mm" viewBox="0 0 254 177.8"
+     stroke="none"
+     fill="#000000"
+     stroke-width="0.3"
+     font-size="3.88"
+>
+<defs>
+  <marker id="arrow" markerWidth="15" markerHeight="7" refX="5" refY="3.5" orient="auto" markerUnits="strokeWidth">
+    <path d="M0,0 L15,3.5 L0,7 z" stroke="context-stroke" fill="context-stroke"/>
+  </marker>
+</defs>
+<g stroke="#000000" stroke-opacity="0.000" fill="#FFFFFF" id="img-1a62ebbd-1">
+  <g transform="translate(190.5,92.46)">
+    <path d="M-63.5,-85.34 L63.5,-85.34 63.5,85.34 -63.5,85.34  z" class="primitive"/>
+  </g>
+</g>
+<g class="plotroot xscalable" id="img-1a62ebbd-2">
+  <g font-size="4.23" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#000000" stroke="#000000" stroke-opacity="0.000" id="img-1a62ebbd-3">
+    <g transform="translate(184.89,165.86)">
+      <g class="primitive">
+        <text text-anchor="middle" dy="0.6em">SSIM</text>
+      </g>
+    </g>
+  </g>
+  <g class="guide colorkey" id="img-1a62ebbd-4">
+    <g fill="#000000" font-size="3.53" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" id="img-1a62ebbd-5">
+      <g transform="translate(233.98,88.31)" id="img-1a62ebbd-6" class="color_Individual">
+        <g class="primitive">
+          <text dy="0.35em">Individual</text>
+        </g>
+      </g>
+      <g transform="translate(233.98,92.6)" id="img-1a62ebbd-7" class="color_Average">
+        <g class="primitive">
+          <text dy="0.35em">Average</text>
+        </g>
+      </g>
+      <g transform="translate(233.98,96.88)" id="img-1a62ebbd-8" class="color_Median">
+        <g class="primitive">
+          <text dy="0.35em">Median</text>
+        </g>
+      </g>
+    </g>
+    <g fill-opacity="1" id="img-1a62ebbd-9">
+      <g transform="translate(231.91,88.31)" id="img-1a62ebbd-10" fill="#00BFFF" class="color_Individual" stroke="#FFFFFF">
+        <path d="M-1.07,-1.07 L1.07,-1.07 1.07,1.07 -1.07,1.07  z" class="primitive"/>
+      </g>
+      <g transform="translate(231.91,92.6)" id="img-1a62ebbd-11" fill="#D4CA3A" class="color_Average" stroke="#FFFFFF">
+        <path d="M-1.07,-1.07 L1.07,-1.07 1.07,1.07 -1.07,1.07  z" class="primitive"/>
+      </g>
+      <g transform="translate(231.91,96.88)" id="img-1a62ebbd-12" fill="#FF6DAE" class="color_Median" stroke="#FFFFFF">
+        <path d="M-1.07,-1.07 L1.07,-1.07 1.07,1.07 -1.07,1.07  z" class="primitive"/>
+      </g>
+    </g>
+    <g fill="#000000" font-size="4.23" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" stroke="#000000" stroke-opacity="0.000" id="img-1a62ebbd-13">
+      <g transform="translate(230.84,84)" id="img-1a62ebbd-14">
+        <g class="primitive">
+          <text dy="-0em">bestTH</text>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g clip-path="url(#img-1a62ebbd-15)">
+    <g id="img-1a62ebbd-16">
+      <g class="plotpanel" id="img-1a62ebbd-17">
+        <metadata>
+          <boundingbox value="139.94mm 18.051999999999996mm 89.90166666666667mm 144.808mm"/>
+          <unitbox value="0.0 0.0 1.0 1.0"/>
+        </metadata>
+        <g class="guide xlabels" font-size="3.53" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#000000" id="img-1a62ebbd-18">
+          <g transform="translate(169.7,158.52)" id="img-1a62ebbd-19">
+            <g class="primitive">
+              <text text-anchor="middle" dy="0.6em">0.0</text>
+            </g>
+          </g>
+          <g transform="translate(180.93,158.52)" id="img-1a62ebbd-20">
+            <g class="primitive">
+              <text text-anchor="middle" dy="0.6em">0.1</text>
+            </g>
+          </g>
+          <g transform="translate(192.15,158.52)" id="img-1a62ebbd-21">
+            <g class="primitive">
+              <text text-anchor="middle" dy="0.6em">0.2</text>
+            </g>
+          </g>
+          <g transform="translate(203.38,158.52)" id="img-1a62ebbd-22">
+            <g class="primitive">
+              <text text-anchor="middle" dy="0.6em">0.3</text>
+            </g>
+          </g>
+          <g transform="translate(214.61,158.52)" id="img-1a62ebbd-23">
+            <g class="primitive">
+              <text text-anchor="middle" dy="0.6em">0.4</text>
+            </g>
+          </g>
+          <g transform="translate(225.84,158.52)" id="img-1a62ebbd-24">
+            <g class="primitive">
+              <text text-anchor="middle" dy="0.6em">0.5</text>
+            </g>
+          </g>
+        </g>
+        <g clip-path="url(#img-1a62ebbd-25)">
+          <g id="img-1a62ebbd-26">
+            <g pointer-events="visible" stroke-width="0.3" fill="#000000" fill-opacity="0.000" stroke="#000000" stroke-opacity="0.000" class="guide background" id="img-1a62ebbd-27">
+              <g transform="translate(197.77,123.65)" id="img-1a62ebbd-28">
+                <path d="M-30.07,-33.87 L30.07,-33.87 30.07,33.87 -30.07,33.87  z" class="primitive"/>
+              </g>
+            </g>
+            <g class="guide ygridlines xfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="img-1a62ebbd-29">
+              <g transform="translate(197.77,153.76)" id="img-1a62ebbd-30">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(197.77,149.99)" id="img-1a62ebbd-31">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(197.77,146.23)" id="img-1a62ebbd-32">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(197.77,142.47)" id="img-1a62ebbd-33">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(197.77,138.7)" id="img-1a62ebbd-34">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(197.77,134.94)" id="img-1a62ebbd-35">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(197.77,131.18)" id="img-1a62ebbd-36">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(197.77,127.41)" id="img-1a62ebbd-37">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(197.77,123.65)" id="img-1a62ebbd-38">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(197.77,119.89)" id="img-1a62ebbd-39">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(197.77,116.13)" id="img-1a62ebbd-40">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(197.77,112.36)" id="img-1a62ebbd-41">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(197.77,108.6)" id="img-1a62ebbd-42">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(197.77,104.84)" id="img-1a62ebbd-43">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(197.77,101.07)" id="img-1a62ebbd-44">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(197.77,97.31)" id="img-1a62ebbd-45">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(197.77,93.55)" id="img-1a62ebbd-46">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+            </g>
+            <g class="guide xgridlines yfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="img-1a62ebbd-47">
+              <g transform="translate(169.7,123.65)" id="img-1a62ebbd-48">
+                <path fill="none" d="M0,-33.87 L0,33.87 " class="primitive"/>
+              </g>
+              <g transform="translate(180.93,123.65)" id="img-1a62ebbd-49">
+                <path fill="none" d="M0,-33.87 L0,33.87 " class="primitive"/>
+              </g>
+              <g transform="translate(192.15,123.65)" id="img-1a62ebbd-50">
+                <path fill="none" d="M0,-33.87 L0,33.87 " class="primitive"/>
+              </g>
+              <g transform="translate(203.38,123.65)" id="img-1a62ebbd-51">
+                <path fill="none" d="M0,-33.87 L0,33.87 " class="primitive"/>
+              </g>
+              <g transform="translate(214.61,123.65)" id="img-1a62ebbd-52">
+                <path fill="none" d="M0,-33.87 L0,33.87 " class="primitive"/>
+              </g>
+              <g transform="translate(225.84,123.65)" id="img-1a62ebbd-53">
+                <path fill="none" d="M0,-33.87 L0,33.87 " class="primitive"/>
+              </g>
+            </g>
+            <g class="plotpanel" id="img-1a62ebbd-54">
+              <metadata>
+                <boundingbox value="167.69666666666666mm 89.78516666666665mm 60.144999999999996mm 67.73316666666666mm"/>
+                <unitbox value="-0.01781102502449016 18.5 0.5356220500489803 -18.0"/>
+              </metadata>
+              <g class="yfixed" id="img-1a62ebbd-55">
+                <g stroke-dasharray="none" stroke-width="2" stroke="#808080" id="img-1a62ebbd-56">
+                  <g transform="translate(196.6,123.65)" id="img-1a62ebbd-57">
+                    <path fill="none" d="M0,-33.87 L0,33.87 " class="primitive"/>
+                  </g>
+                </g>
+              </g>
+              <g class="geometry" id="img-1a62ebbd-58">
+                <g stroke-width="0.3" id="img-1a62ebbd-59">
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-60">
+                    <g class="marker" id="img-1a62ebbd-61">
+                      <g transform="translate(201.68,91.67)" id="img-1a62ebbd-62">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-63">
+                    <g class="marker" id="img-1a62ebbd-64">
+                      <g transform="translate(201.67,91.67)" id="img-1a62ebbd-65">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-66">
+                    <g class="marker" id="img-1a62ebbd-67">
+                      <g transform="translate(201.49,91.67)" id="img-1a62ebbd-68">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-69">
+                    <g class="marker" id="img-1a62ebbd-70">
+                      <g transform="translate(201.9,95.43)" id="img-1a62ebbd-71">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-72">
+                    <g class="marker" id="img-1a62ebbd-73">
+                      <g transform="translate(201.89,95.43)" id="img-1a62ebbd-74">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-75">
+                    <g class="marker" id="img-1a62ebbd-76">
+                      <g transform="translate(201.76,95.43)" id="img-1a62ebbd-77">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-78">
+                    <g class="marker" id="img-1a62ebbd-79">
+                      <g transform="translate(202.5,99.19)" id="img-1a62ebbd-80">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-81">
+                    <g class="marker" id="img-1a62ebbd-82">
+                      <g transform="translate(203.65,99.19)" id="img-1a62ebbd-83">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-84">
+                    <g class="marker" id="img-1a62ebbd-85">
+                      <g transform="translate(201.8,99.19)" id="img-1a62ebbd-86">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-87">
+                    <g class="marker" id="img-1a62ebbd-88">
+                      <g transform="translate(201.12,102.96)" id="img-1a62ebbd-89">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-90">
+                    <g class="marker" id="img-1a62ebbd-91">
+                      <g transform="translate(201.11,102.96)" id="img-1a62ebbd-92">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-93">
+                    <g class="marker" id="img-1a62ebbd-94">
+                      <g transform="translate(200.97,102.96)" id="img-1a62ebbd-95">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-96">
+                    <g class="marker" id="img-1a62ebbd-97">
+                      <g transform="translate(204.12,106.72)" id="img-1a62ebbd-98">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-99">
+                    <g class="marker" id="img-1a62ebbd-100">
+                      <g transform="translate(204.14,106.72)" id="img-1a62ebbd-101">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-102">
+                    <g class="marker" id="img-1a62ebbd-103">
+                      <g transform="translate(204.23,106.72)" id="img-1a62ebbd-104">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-105">
+                    <g class="marker" id="img-1a62ebbd-106">
+                      <g transform="translate(185.73,110.48)" id="img-1a62ebbd-107">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-108">
+                    <g class="marker" id="img-1a62ebbd-109">
+                      <g transform="translate(185.67,110.48)" id="img-1a62ebbd-110">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-111">
+                    <g class="marker" id="img-1a62ebbd-112">
+                      <g transform="translate(185.02,110.48)" id="img-1a62ebbd-113">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-114">
+                    <g class="marker" id="img-1a62ebbd-115">
+                      <g transform="translate(194.15,114.24)" id="img-1a62ebbd-116">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-117">
+                    <g class="marker" id="img-1a62ebbd-118">
+                      <g transform="translate(193.94,114.24)" id="img-1a62ebbd-119">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-120">
+                    <g class="marker" id="img-1a62ebbd-121">
+                      <g transform="translate(193.61,114.24)" id="img-1a62ebbd-122">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-123">
+                    <g class="marker" id="img-1a62ebbd-124">
+                      <g transform="translate(197.39,118.01)" id="img-1a62ebbd-125">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-126">
+                    <g class="marker" id="img-1a62ebbd-127">
+                      <g transform="translate(191.02,118.01)" id="img-1a62ebbd-128">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-129">
+                    <g class="marker" id="img-1a62ebbd-130">
+                      <g transform="translate(194.07,118.01)" id="img-1a62ebbd-131">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-132">
+                    <g class="marker" id="img-1a62ebbd-133">
+                      <g transform="translate(174.19,121.77)" id="img-1a62ebbd-134">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-135">
+                    <g class="marker" id="img-1a62ebbd-136">
+                      <g transform="translate(175.31,121.77)" id="img-1a62ebbd-137">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-138">
+                    <g class="marker" id="img-1a62ebbd-139">
+                      <g transform="translate(175.15,121.77)" id="img-1a62ebbd-140">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-141">
+                    <g class="marker" id="img-1a62ebbd-142">
+                      <g transform="translate(194.43,125.53)" id="img-1a62ebbd-143">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-144">
+                    <g class="marker" id="img-1a62ebbd-145">
+                      <g transform="translate(194.23,125.53)" id="img-1a62ebbd-146">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-147">
+                    <g class="marker" id="img-1a62ebbd-148">
+                      <g transform="translate(193.89,125.53)" id="img-1a62ebbd-149">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-150">
+                    <g class="marker" id="img-1a62ebbd-151">
+                      <g transform="translate(204.78,129.3)" id="img-1a62ebbd-152">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-153">
+                    <g class="marker" id="img-1a62ebbd-154">
+                      <g transform="translate(204.87,129.3)" id="img-1a62ebbd-155">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-156">
+                    <g class="marker" id="img-1a62ebbd-157">
+                      <g transform="translate(205.57,129.3)" id="img-1a62ebbd-158">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-159">
+                    <g class="marker" id="img-1a62ebbd-160">
+                      <g transform="translate(176.17,133.06)" id="img-1a62ebbd-161">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-162">
+                    <g class="marker" id="img-1a62ebbd-163">
+                      <g transform="translate(176.15,133.06)" id="img-1a62ebbd-164">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-165">
+                    <g class="marker" id="img-1a62ebbd-166">
+                      <g transform="translate(176.19,133.06)" id="img-1a62ebbd-167">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-168">
+                    <g class="marker" id="img-1a62ebbd-169">
+                      <g transform="translate(197.13,136.82)" id="img-1a62ebbd-170">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-171">
+                    <g class="marker" id="img-1a62ebbd-172">
+                      <g transform="translate(197.14,136.82)" id="img-1a62ebbd-173">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-174">
+                    <g class="marker" id="img-1a62ebbd-175">
+                      <g transform="translate(196.72,136.82)" id="img-1a62ebbd-176">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-177">
+                    <g class="marker" id="img-1a62ebbd-178">
+                      <g transform="translate(196.3,140.59)" id="img-1a62ebbd-179">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-180">
+                    <g class="marker" id="img-1a62ebbd-181">
+                      <g transform="translate(196.23,140.59)" id="img-1a62ebbd-182">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-183">
+                    <g class="marker" id="img-1a62ebbd-184">
+                      <g transform="translate(195.3,140.59)" id="img-1a62ebbd-185">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-186">
+                    <g class="marker" id="img-1a62ebbd-187">
+                      <g transform="translate(197.54,144.35)" id="img-1a62ebbd-188">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-189">
+                    <g class="marker" id="img-1a62ebbd-190">
+                      <g transform="translate(197.54,144.35)" id="img-1a62ebbd-191">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-192">
+                    <g class="marker" id="img-1a62ebbd-193">
+                      <g transform="translate(197.31,144.35)" id="img-1a62ebbd-194">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-195">
+                    <g class="marker" id="img-1a62ebbd-196">
+                      <g transform="translate(195.77,148.11)" id="img-1a62ebbd-197">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-198">
+                    <g class="marker" id="img-1a62ebbd-199">
+                      <g transform="translate(195.63,148.11)" id="img-1a62ebbd-200">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-201">
+                    <g class="marker" id="img-1a62ebbd-202">
+                      <g transform="translate(194.67,148.11)" id="img-1a62ebbd-203">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-204">
+                    <g class="marker" id="img-1a62ebbd-205">
+                      <g transform="translate(199.22,151.87)" id="img-1a62ebbd-206">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-207">
+                    <g class="marker" id="img-1a62ebbd-208">
+                      <g transform="translate(199.23,151.87)" id="img-1a62ebbd-209">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-210">
+                    <g class="marker" id="img-1a62ebbd-211">
+                      <g transform="translate(199.06,151.87)" id="img-1a62ebbd-212">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-213">
+                    <g class="marker" id="img-1a62ebbd-214">
+                      <g transform="translate(200.55,155.64)" id="img-1a62ebbd-215">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-216">
+                    <g class="marker" id="img-1a62ebbd-217">
+                      <g transform="translate(200.52,155.64)" id="img-1a62ebbd-218">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-219">
+                    <g class="marker" id="img-1a62ebbd-220">
+                      <g transform="translate(199.7,155.64)" id="img-1a62ebbd-221">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+        <g class="guide ylabels" font-size="3.53" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#000000" id="img-1a62ebbd-222">
+          <g transform="translate(166.7,155.64)" id="img-1a62ebbd-223">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">DWT</text>
+            </g>
+          </g>
+          <g transform="translate(166.7,151.87)" id="img-1a62ebbd-224">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">WPT-L4</text>
+            </g>
+          </g>
+          <g transform="translate(166.7,148.11)" id="img-1a62ebbd-225">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">WPT-L8</text>
+            </g>
+          </g>
+          <g transform="translate(166.7,144.35)" id="img-1a62ebbd-226">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">WPT-BT</text>
+            </g>
+          </g>
+          <g transform="translate(166.7,140.59)" id="img-1a62ebbd-227">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">JBB</text>
+            </g>
+          </g>
+          <g transform="translate(166.7,136.82)" id="img-1a62ebbd-228">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">LSDB</text>
+            </g>
+          </g>
+          <g transform="translate(166.7,133.06)" id="img-1a62ebbd-229">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">ACWT</text>
+            </g>
+          </g>
+          <g transform="translate(166.7,129.3)" id="img-1a62ebbd-230">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">ACWPT-L4</text>
+            </g>
+          </g>
+          <g transform="translate(166.7,125.53)" id="img-1a62ebbd-231">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">ACWPT-L8</text>
+            </g>
+          </g>
+          <g transform="translate(166.7,121.77)" id="img-1a62ebbd-232">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">ACWPT-BT</text>
+            </g>
+          </g>
+          <g transform="translate(166.7,118.01)" id="img-1a62ebbd-233">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">ACJBB</text>
+            </g>
+          </g>
+          <g transform="translate(166.7,114.24)" id="img-1a62ebbd-234">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">ACLSDB</text>
+            </g>
+          </g>
+          <g transform="translate(166.7,110.48)" id="img-1a62ebbd-235">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">SDWT</text>
+            </g>
+          </g>
+          <g transform="translate(166.7,106.72)" id="img-1a62ebbd-236">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">SWPT-L4</text>
+            </g>
+          </g>
+          <g transform="translate(166.7,102.96)" id="img-1a62ebbd-237">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">SWPT-L8</text>
+            </g>
+          </g>
+          <g transform="translate(166.7,99.19)" id="img-1a62ebbd-238">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">SWPT-BT</text>
+            </g>
+          </g>
+          <g transform="translate(166.7,95.43)" id="img-1a62ebbd-239">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">SJBB</text>
+            </g>
+          </g>
+          <g transform="translate(166.7,91.67)" id="img-1a62ebbd-240">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">SLSDB</text>
+            </g>
+          </g>
+        </g>
+        <g font-size="4.23" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#000000" stroke="#000000" stroke-opacity="0.000" id="img-1a62ebbd-241">
+          <g transform="translate(143.91,121.65)" id="img-1a62ebbd-242">
+            <g class="primitive">
+              <text text-anchor="middle" dy="0.35em" transform="rotate(-90,0, 2)">RelErrorShrink</text>
+            </g>
+          </g>
+        </g>
+        <g clip-path="url(#img-1a62ebbd-243)">
+          <g id="img-1a62ebbd-244">
+            <g pointer-events="visible" stroke-width="0.3" fill="#000000" fill-opacity="0.000" stroke="#000000" stroke-opacity="0.000" class="guide background" id="img-1a62ebbd-245">
+              <g transform="translate(197.77,52.92)" id="img-1a62ebbd-246">
+                <path d="M-30.07,-32.87 L30.07,-32.87 30.07,32.87 -30.07,32.87  z" class="primitive"/>
+              </g>
+            </g>
+            <g class="guide ygridlines xfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="img-1a62ebbd-247">
+              <g transform="translate(197.77,82.13)" id="img-1a62ebbd-248">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(197.77,78.48)" id="img-1a62ebbd-249">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(197.77,74.83)" id="img-1a62ebbd-250">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(197.77,71.18)" id="img-1a62ebbd-251">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(197.77,67.53)" id="img-1a62ebbd-252">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(197.77,63.87)" id="img-1a62ebbd-253">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(197.77,60.22)" id="img-1a62ebbd-254">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(197.77,56.57)" id="img-1a62ebbd-255">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(197.77,52.92)" id="img-1a62ebbd-256">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(197.77,49.27)" id="img-1a62ebbd-257">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(197.77,45.61)" id="img-1a62ebbd-258">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(197.77,41.96)" id="img-1a62ebbd-259">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(197.77,38.31)" id="img-1a62ebbd-260">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(197.77,34.66)" id="img-1a62ebbd-261">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(197.77,31.01)" id="img-1a62ebbd-262">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(197.77,27.36)" id="img-1a62ebbd-263">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(197.77,23.7)" id="img-1a62ebbd-264">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+            </g>
+            <g class="guide xgridlines yfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="img-1a62ebbd-265">
+              <g transform="translate(169.7,52.92)" id="img-1a62ebbd-266">
+                <path fill="none" d="M0,-32.87 L0,32.87 " class="primitive"/>
+              </g>
+              <g transform="translate(180.93,52.92)" id="img-1a62ebbd-267">
+                <path fill="none" d="M0,-32.87 L0,32.87 " class="primitive"/>
+              </g>
+              <g transform="translate(192.15,52.92)" id="img-1a62ebbd-268">
+                <path fill="none" d="M0,-32.87 L0,32.87 " class="primitive"/>
+              </g>
+              <g transform="translate(203.38,52.92)" id="img-1a62ebbd-269">
+                <path fill="none" d="M0,-32.87 L0,32.87 " class="primitive"/>
+              </g>
+              <g transform="translate(214.61,52.92)" id="img-1a62ebbd-270">
+                <path fill="none" d="M0,-32.87 L0,32.87 " class="primitive"/>
+              </g>
+              <g transform="translate(225.84,52.92)" id="img-1a62ebbd-271">
+                <path fill="none" d="M0,-32.87 L0,32.87 " class="primitive"/>
+              </g>
+            </g>
+            <g class="plotpanel" id="img-1a62ebbd-272">
+              <metadata>
+                <boundingbox value="167.69666666666666mm 20.051999999999996mm 60.144999999999996mm 65.73316666666666mm"/>
+                <unitbox value="-0.01781102502449016 18.5 0.5356220500489803 -18.0"/>
+              </metadata>
+              <g class="yfixed" id="img-1a62ebbd-273">
+                <g stroke-dasharray="none" stroke-width="2" stroke="#808080" id="img-1a62ebbd-274">
+                  <g transform="translate(196.6,52.92)" id="img-1a62ebbd-275">
+                    <path fill="none" d="M0,-32.87 L0,32.87 " class="primitive"/>
+                  </g>
+                </g>
+              </g>
+              <g class="geometry" id="img-1a62ebbd-276">
+                <g stroke-width="0.3" id="img-1a62ebbd-277">
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-278">
+                    <g class="marker" id="img-1a62ebbd-279">
+                      <g transform="translate(197.56,21.88)" id="img-1a62ebbd-280">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-281">
+                    <g class="marker" id="img-1a62ebbd-282">
+                      <g transform="translate(197.31,21.88)" id="img-1a62ebbd-283">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-284">
+                    <g class="marker" id="img-1a62ebbd-285">
+                      <g transform="translate(199,21.88)" id="img-1a62ebbd-286">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-287">
+                    <g class="marker" id="img-1a62ebbd-288">
+                      <g transform="translate(197.44,25.53)" id="img-1a62ebbd-289">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-290">
+                    <g class="marker" id="img-1a62ebbd-291">
+                      <g transform="translate(197.01,25.53)" id="img-1a62ebbd-292">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-293">
+                    <g class="marker" id="img-1a62ebbd-294">
+                      <g transform="translate(197.09,25.53)" id="img-1a62ebbd-295">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-296">
+                    <g class="marker" id="img-1a62ebbd-297">
+                      <g transform="translate(207.27,29.18)" id="img-1a62ebbd-298">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-299">
+                    <g class="marker" id="img-1a62ebbd-300">
+                      <g transform="translate(207.56,29.18)" id="img-1a62ebbd-301">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-302">
+                    <g class="marker" id="img-1a62ebbd-303">
+                      <g transform="translate(206.58,29.18)" id="img-1a62ebbd-304">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-305">
+                    <g class="marker" id="img-1a62ebbd-306">
+                      <g transform="translate(196.38,32.83)" id="img-1a62ebbd-307">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-308">
+                    <g class="marker" id="img-1a62ebbd-309">
+                      <g transform="translate(195.87,32.83)" id="img-1a62ebbd-310">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-311">
+                    <g class="marker" id="img-1a62ebbd-312">
+                      <g transform="translate(195.93,32.83)" id="img-1a62ebbd-313">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-314">
+                    <g class="marker" id="img-1a62ebbd-315">
+                      <g transform="translate(206.92,36.49)" id="img-1a62ebbd-316">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-317">
+                    <g class="marker" id="img-1a62ebbd-318">
+                      <g transform="translate(206.89,36.49)" id="img-1a62ebbd-319">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-320">
+                    <g class="marker" id="img-1a62ebbd-321">
+                      <g transform="translate(206.46,36.49)" id="img-1a62ebbd-322">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-323">
+                    <g class="marker" id="img-1a62ebbd-324">
+                      <g transform="translate(206.09,40.14)" id="img-1a62ebbd-325">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-326">
+                    <g class="marker" id="img-1a62ebbd-327">
+                      <g transform="translate(206.08,40.14)" id="img-1a62ebbd-328">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-329">
+                    <g class="marker" id="img-1a62ebbd-330">
+                      <g transform="translate(205.92,40.14)" id="img-1a62ebbd-331">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-332">
+                    <g class="marker" id="img-1a62ebbd-333">
+                      <g transform="translate(194.53,43.79)" id="img-1a62ebbd-334">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-335">
+                    <g class="marker" id="img-1a62ebbd-336">
+                      <g transform="translate(193.59,43.79)" id="img-1a62ebbd-337">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-338">
+                    <g class="marker" id="img-1a62ebbd-339">
+                      <g transform="translate(193.51,43.79)" id="img-1a62ebbd-340">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-341">
+                    <g class="marker" id="img-1a62ebbd-342">
+                      <g transform="translate(195.1,47.44)" id="img-1a62ebbd-343">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-344">
+                    <g class="marker" id="img-1a62ebbd-345">
+                      <g transform="translate(194.15,47.44)" id="img-1a62ebbd-346">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-347">
+                    <g class="marker" id="img-1a62ebbd-348">
+                      <g transform="translate(194.03,47.44)" id="img-1a62ebbd-349">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-350">
+                    <g class="marker" id="img-1a62ebbd-351">
+                      <g transform="translate(196.52,51.09)" id="img-1a62ebbd-352">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-353">
+                    <g class="marker" id="img-1a62ebbd-354">
+                      <g transform="translate(195.62,51.09)" id="img-1a62ebbd-355">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-356">
+                    <g class="marker" id="img-1a62ebbd-357">
+                      <g transform="translate(194.93,51.09)" id="img-1a62ebbd-358">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-359">
+                    <g class="marker" id="img-1a62ebbd-360">
+                      <g transform="translate(194.43,54.74)" id="img-1a62ebbd-361">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-362">
+                    <g class="marker" id="img-1a62ebbd-363">
+                      <g transform="translate(193.52,54.74)" id="img-1a62ebbd-364">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-365">
+                    <g class="marker" id="img-1a62ebbd-366">
+                      <g transform="translate(193.4,54.74)" id="img-1a62ebbd-367">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-368">
+                    <g class="marker" id="img-1a62ebbd-369">
+                      <g transform="translate(222.53,58.4)" id="img-1a62ebbd-370">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-371">
+                    <g class="marker" id="img-1a62ebbd-372">
+                      <g transform="translate(222.97,58.4)" id="img-1a62ebbd-373">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-374">
+                    <g class="marker" id="img-1a62ebbd-375">
+                      <g transform="translate(220.53,58.4)" id="img-1a62ebbd-376">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-377">
+                    <g class="marker" id="img-1a62ebbd-378">
+                      <g transform="translate(198.61,62.05)" id="img-1a62ebbd-379">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-380">
+                    <g class="marker" id="img-1a62ebbd-381">
+                      <g transform="translate(198.58,62.05)" id="img-1a62ebbd-382">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-383">
+                    <g class="marker" id="img-1a62ebbd-384">
+                      <g transform="translate(198.42,62.05)" id="img-1a62ebbd-385">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-386">
+                    <g class="marker" id="img-1a62ebbd-387">
+                      <g transform="translate(195.06,65.7)" id="img-1a62ebbd-388">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-389">
+                    <g class="marker" id="img-1a62ebbd-390">
+                      <g transform="translate(193.83,65.7)" id="img-1a62ebbd-391">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-392">
+                    <g class="marker" id="img-1a62ebbd-393">
+                      <g transform="translate(197.09,65.7)" id="img-1a62ebbd-394">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-395">
+                    <g class="marker" id="img-1a62ebbd-396">
+                      <g transform="translate(195.5,69.35)" id="img-1a62ebbd-397">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-398">
+                    <g class="marker" id="img-1a62ebbd-399">
+                      <g transform="translate(194.15,69.35)" id="img-1a62ebbd-400">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-401">
+                    <g class="marker" id="img-1a62ebbd-402">
+                      <g transform="translate(192.58,69.35)" id="img-1a62ebbd-403">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-404">
+                    <g class="marker" id="img-1a62ebbd-405">
+                      <g transform="translate(197.54,73)" id="img-1a62ebbd-406">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-407">
+                    <g class="marker" id="img-1a62ebbd-408">
+                      <g transform="translate(197.58,73)" id="img-1a62ebbd-409">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-410">
+                    <g class="marker" id="img-1a62ebbd-411">
+                      <g transform="translate(196.51,73)" id="img-1a62ebbd-412">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-413">
+                    <g class="marker" id="img-1a62ebbd-414">
+                      <g transform="translate(195.62,76.66)" id="img-1a62ebbd-415">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-416">
+                    <g class="marker" id="img-1a62ebbd-417">
+                      <g transform="translate(193.75,76.66)" id="img-1a62ebbd-418">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-419">
+                    <g class="marker" id="img-1a62ebbd-420">
+                      <g transform="translate(192.06,76.66)" id="img-1a62ebbd-421">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-422">
+                    <g class="marker" id="img-1a62ebbd-423">
+                      <g transform="translate(197.24,80.31)" id="img-1a62ebbd-424">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-425">
+                    <g class="marker" id="img-1a62ebbd-426">
+                      <g transform="translate(196.93,80.31)" id="img-1a62ebbd-427">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-428">
+                    <g class="marker" id="img-1a62ebbd-429">
+                      <g transform="translate(196.14,80.31)" id="img-1a62ebbd-430">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-431">
+                    <g class="marker" id="img-1a62ebbd-432">
+                      <g transform="translate(196.7,83.96)" id="img-1a62ebbd-433">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-434">
+                    <g class="marker" id="img-1a62ebbd-435">
+                      <g transform="translate(196.67,83.96)" id="img-1a62ebbd-436">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-437">
+                    <g class="marker" id="img-1a62ebbd-438">
+                      <g transform="translate(196.57,83.96)" id="img-1a62ebbd-439">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+        <g class="guide ylabels" font-size="3.53" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#000000" id="img-1a62ebbd-440">
+          <g transform="translate(166.7,83.96)" id="img-1a62ebbd-441">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">DWT</text>
+            </g>
+          </g>
+          <g transform="translate(166.7,80.31)" id="img-1a62ebbd-442">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">WPT-L4</text>
+            </g>
+          </g>
+          <g transform="translate(166.7,76.66)" id="img-1a62ebbd-443">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">WPT-L8</text>
+            </g>
+          </g>
+          <g transform="translate(166.7,73)" id="img-1a62ebbd-444">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">WPT-BT</text>
+            </g>
+          </g>
+          <g transform="translate(166.7,69.35)" id="img-1a62ebbd-445">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">JBB</text>
+            </g>
+          </g>
+          <g transform="translate(166.7,65.7)" id="img-1a62ebbd-446">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">LSDB</text>
+            </g>
+          </g>
+          <g transform="translate(166.7,62.05)" id="img-1a62ebbd-447">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">ACWT</text>
+            </g>
+          </g>
+          <g transform="translate(166.7,58.4)" id="img-1a62ebbd-448">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">ACWPT-L4</text>
+            </g>
+          </g>
+          <g transform="translate(166.7,54.74)" id="img-1a62ebbd-449">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">ACWPT-L8</text>
+            </g>
+          </g>
+          <g transform="translate(166.7,51.09)" id="img-1a62ebbd-450">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">ACWPT-BT</text>
+            </g>
+          </g>
+          <g transform="translate(166.7,47.44)" id="img-1a62ebbd-451">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">ACJBB</text>
+            </g>
+          </g>
+          <g transform="translate(166.7,43.79)" id="img-1a62ebbd-452">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">ACLSDB</text>
+            </g>
+          </g>
+          <g transform="translate(166.7,40.14)" id="img-1a62ebbd-453">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">SDWT</text>
+            </g>
+          </g>
+          <g transform="translate(166.7,36.49)" id="img-1a62ebbd-454">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">SWPT-L4</text>
+            </g>
+          </g>
+          <g transform="translate(166.7,32.83)" id="img-1a62ebbd-455">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">SWPT-L8</text>
+            </g>
+          </g>
+          <g transform="translate(166.7,29.18)" id="img-1a62ebbd-456">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">SWPT-BT</text>
+            </g>
+          </g>
+          <g transform="translate(166.7,25.53)" id="img-1a62ebbd-457">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">SJBB</text>
+            </g>
+          </g>
+          <g transform="translate(166.7,21.88)" id="img-1a62ebbd-458">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">SLSDB</text>
+            </g>
+          </g>
+        </g>
+        <g font-size="4.23" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#000000" stroke="#000000" stroke-opacity="0.000" id="img-1a62ebbd-459">
+          <g transform="translate(143.91,50.92)" id="img-1a62ebbd-460">
+            <g class="primitive">
+              <text text-anchor="middle" dy="0.35em" transform="rotate(-90,0, 2)">VisuShrink</text>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g font-size="4.23" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#000000" stroke="#000000" stroke-opacity="0.000" id="img-1a62ebbd-461">
+    <g transform="translate(135.97,88.46)" id="img-1a62ebbd-462">
+      <g class="primitive">
+        <text text-anchor="middle" dy="0.35em" transform="rotate(-90,0, 2)">transform <tspan font-style="italic"><tspan font-weight="bold">by</tspan></tspan> method</text>
+      </g>
+    </g>
+  </g>
+  <g font-size="4.23" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#000000" stroke="#000000" stroke-opacity="0.000" id="img-1a62ebbd-463">
+    <g transform="translate(184.89,12.11)" id="img-1a62ebbd-464">
+      <g class="primitive">
+        <text text-anchor="middle" dy="0.6em">Structural Similarity Index Measure (SSIM)</text>
+      </g>
+    </g>
+  </g>
+</g>
+<g stroke="#000000" stroke-opacity="0.000" fill="#FFFFFF" id="img-1a62ebbd-465">
+  <g transform="translate(63.5,92.46)" id="img-1a62ebbd-466">
+    <path d="M-63.5,-85.34 L63.5,-85.34 63.5,85.34 -63.5,85.34  z" class="primitive"/>
+  </g>
+</g>
+<g class="plotroot xscalable" id="img-1a62ebbd-467">
+  <g font-size="4.23" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#000000" stroke="#000000" stroke-opacity="0.000" id="img-1a62ebbd-468">
+    <g transform="translate(57.89,165.86)" id="img-1a62ebbd-469">
+      <g class="primitive">
+        <text text-anchor="middle" dy="0.6em">PSNR</text>
+      </g>
+    </g>
+  </g>
+  <g class="guide colorkey" id="img-1a62ebbd-470">
+    <g fill="#000000" font-size="3.53" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" id="img-1a62ebbd-471">
+      <g transform="translate(106.98,88.31)" id="img-1a62ebbd-472" class="color_Individual">
+        <g class="primitive">
+          <text dy="0.35em">Individual</text>
+        </g>
+      </g>
+      <g transform="translate(106.98,92.6)" id="img-1a62ebbd-473" class="color_Average">
+        <g class="primitive">
+          <text dy="0.35em">Average</text>
+        </g>
+      </g>
+      <g transform="translate(106.98,96.88)" id="img-1a62ebbd-474" class="color_Median">
+        <g class="primitive">
+          <text dy="0.35em">Median</text>
+        </g>
+      </g>
+    </g>
+    <g fill-opacity="1" id="img-1a62ebbd-475">
+      <g transform="translate(104.91,88.31)" id="img-1a62ebbd-476" stroke="#FFFFFF" class="color_Individual" fill="#00BFFF">
+        <path d="M-1.07,-1.07 L1.07,-1.07 1.07,1.07 -1.07,1.07  z" class="primitive"/>
+      </g>
+      <g transform="translate(104.91,92.6)" id="img-1a62ebbd-477" stroke="#FFFFFF" class="color_Average" fill="#D4CA3A">
+        <path d="M-1.07,-1.07 L1.07,-1.07 1.07,1.07 -1.07,1.07  z" class="primitive"/>
+      </g>
+      <g transform="translate(104.91,96.88)" id="img-1a62ebbd-478" stroke="#FFFFFF" class="color_Median" fill="#FF6DAE">
+        <path d="M-1.07,-1.07 L1.07,-1.07 1.07,1.07 -1.07,1.07  z" class="primitive"/>
+      </g>
+    </g>
+    <g fill="#000000" font-size="4.23" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" stroke="#000000" stroke-opacity="0.000" id="img-1a62ebbd-479">
+      <g transform="translate(103.84,84)" id="img-1a62ebbd-480">
+        <g class="primitive">
+          <text dy="-0em">bestTH</text>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g clip-path="url(#img-1a62ebbd-481)">
+    <g id="img-1a62ebbd-482">
+      <g class="plotpanel" id="img-1a62ebbd-483">
+        <metadata>
+          <boundingbox value="12.939999999999998mm 18.051999999999996mm 89.90166666666667mm 144.808mm"/>
+          <unitbox value="0.0 0.0 1.0 1.0"/>
+        </metadata>
+        <g class="guide xlabels" font-size="3.53" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#000000" id="img-1a62ebbd-484">
+          <g transform="translate(42.7,158.52)" id="img-1a62ebbd-485">
+            <g class="primitive">
+              <text text-anchor="middle" dy="0.6em">10</text>
+            </g>
+          </g>
+          <g transform="translate(61.41,158.52)" id="img-1a62ebbd-486">
+            <g class="primitive">
+              <text text-anchor="middle" dy="0.6em">15</text>
+            </g>
+          </g>
+          <g transform="translate(80.13,158.52)" id="img-1a62ebbd-487">
+            <g class="primitive">
+              <text text-anchor="middle" dy="0.6em">20</text>
+            </g>
+          </g>
+          <g transform="translate(98.84,158.52)" id="img-1a62ebbd-488">
+            <g class="primitive">
+              <text text-anchor="middle" dy="0.6em">25</text>
+            </g>
+          </g>
+        </g>
+        <g clip-path="url(#img-1a62ebbd-489)">
+          <g id="img-1a62ebbd-490">
+            <g pointer-events="visible" stroke-width="0.3" fill="#000000" fill-opacity="0.000" stroke="#000000" stroke-opacity="0.000" class="guide background" id="img-1a62ebbd-491">
+              <g transform="translate(70.77,123.65)" id="img-1a62ebbd-492">
+                <path d="M-30.07,-33.87 L30.07,-33.87 30.07,33.87 -30.07,33.87  z" class="primitive"/>
+              </g>
+            </g>
+            <g class="guide ygridlines xfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="img-1a62ebbd-493">
+              <g transform="translate(70.77,153.76)" id="img-1a62ebbd-494">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(70.77,149.99)" id="img-1a62ebbd-495">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(70.77,146.23)" id="img-1a62ebbd-496">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(70.77,142.47)" id="img-1a62ebbd-497">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(70.77,138.7)" id="img-1a62ebbd-498">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(70.77,134.94)" id="img-1a62ebbd-499">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(70.77,131.18)" id="img-1a62ebbd-500">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(70.77,127.41)" id="img-1a62ebbd-501">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(70.77,123.65)" id="img-1a62ebbd-502">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(70.77,119.89)" id="img-1a62ebbd-503">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(70.77,116.13)" id="img-1a62ebbd-504">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(70.77,112.36)" id="img-1a62ebbd-505">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(70.77,108.6)" id="img-1a62ebbd-506">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(70.77,104.84)" id="img-1a62ebbd-507">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(70.77,101.07)" id="img-1a62ebbd-508">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(70.77,97.31)" id="img-1a62ebbd-509">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(70.77,93.55)" id="img-1a62ebbd-510">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+            </g>
+            <g class="guide xgridlines yfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="img-1a62ebbd-511">
+              <g transform="translate(42.7,123.65)" id="img-1a62ebbd-512">
+                <path fill="none" d="M0,-33.87 L0,33.87 " class="primitive"/>
+              </g>
+              <g transform="translate(61.41,123.65)" id="img-1a62ebbd-513">
+                <path fill="none" d="M0,-33.87 L0,33.87 " class="primitive"/>
+              </g>
+              <g transform="translate(80.13,123.65)" id="img-1a62ebbd-514">
+                <path fill="none" d="M0,-33.87 L0,33.87 " class="primitive"/>
+              </g>
+              <g transform="translate(98.84,123.65)" id="img-1a62ebbd-515">
+                <path fill="none" d="M0,-33.87 L0,33.87 " class="primitive"/>
+              </g>
+            </g>
+            <g class="plotpanel" id="img-1a62ebbd-516">
+              <metadata>
+                <boundingbox value="40.69666666666667mm 89.78516666666665mm 60.144999999999996mm 67.73316666666666mm"/>
+                <unitbox value="9.465669249265295 18.5 16.06866150146941 -18.0"/>
+              </metadata>
+              <g class="yfixed" id="img-1a62ebbd-517">
+                <g stroke-dasharray="none" stroke-width="2" stroke="#808080" id="img-1a62ebbd-518">
+                  <g transform="translate(63.51,123.65)" id="img-1a62ebbd-519">
+                    <path fill="none" d="M0,-33.87 L0,33.87 " class="primitive"/>
+                  </g>
+                </g>
+              </g>
+              <g class="geometry" id="img-1a62ebbd-520">
+                <g stroke-width="0.3" id="img-1a62ebbd-521">
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-522">
+                    <g class="marker" id="img-1a62ebbd-523">
+                      <g transform="translate(79.01,91.67)" id="img-1a62ebbd-524">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-525">
+                    <g class="marker" id="img-1a62ebbd-526">
+                      <g transform="translate(79.03,91.67)" id="img-1a62ebbd-527">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-528">
+                    <g class="marker" id="img-1a62ebbd-529">
+                      <g transform="translate(78.73,91.67)" id="img-1a62ebbd-530">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-531">
+                    <g class="marker" id="img-1a62ebbd-532">
+                      <g transform="translate(77.19,95.43)" id="img-1a62ebbd-533">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-534">
+                    <g class="marker" id="img-1a62ebbd-535">
+                      <g transform="translate(77.2,95.43)" id="img-1a62ebbd-536">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-537">
+                    <g class="marker" id="img-1a62ebbd-538">
+                      <g transform="translate(76.97,95.43)" id="img-1a62ebbd-539">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-540">
+                    <g class="marker" id="img-1a62ebbd-541">
+                      <g transform="translate(78.23,99.19)" id="img-1a62ebbd-542">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-543">
+                    <g class="marker" id="img-1a62ebbd-544">
+                      <g transform="translate(80.58,99.19)" id="img-1a62ebbd-545">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-546">
+                    <g class="marker" id="img-1a62ebbd-547">
+                      <g transform="translate(77.29,99.19)" id="img-1a62ebbd-548">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-549">
+                    <g class="marker" id="img-1a62ebbd-550">
+                      <g transform="translate(76.04,102.96)" id="img-1a62ebbd-551">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-552">
+                    <g class="marker" id="img-1a62ebbd-553">
+                      <g transform="translate(76.06,102.96)" id="img-1a62ebbd-554">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-555">
+                    <g class="marker" id="img-1a62ebbd-556">
+                      <g transform="translate(75.86,102.96)" id="img-1a62ebbd-557">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-558">
+                    <g class="marker" id="img-1a62ebbd-559">
+                      <g transform="translate(80.75,106.72)" id="img-1a62ebbd-560">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-561">
+                    <g class="marker" id="img-1a62ebbd-562">
+                      <g transform="translate(80.8,106.72)" id="img-1a62ebbd-563">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-564">
+                    <g class="marker" id="img-1a62ebbd-565">
+                      <g transform="translate(80.83,106.72)" id="img-1a62ebbd-566">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-567">
+                    <g class="marker" id="img-1a62ebbd-568">
+                      <g transform="translate(54.99,110.48)" id="img-1a62ebbd-569">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-570">
+                    <g class="marker" id="img-1a62ebbd-571">
+                      <g transform="translate(54.93,110.48)" id="img-1a62ebbd-572">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-573">
+                    <g class="marker" id="img-1a62ebbd-574">
+                      <g transform="translate(54.51,110.48)" id="img-1a62ebbd-575">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-576">
+                    <g class="marker" id="img-1a62ebbd-577">
+                      <g transform="translate(69.61,114.24)" id="img-1a62ebbd-578">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-579">
+                    <g class="marker" id="img-1a62ebbd-580">
+                      <g transform="translate(69.47,114.24)" id="img-1a62ebbd-581">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-582">
+                    <g class="marker" id="img-1a62ebbd-583">
+                      <g transform="translate(69.32,114.24)" id="img-1a62ebbd-584">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-585">
+                    <g class="marker" id="img-1a62ebbd-586">
+                      <g transform="translate(72.11,118.01)" id="img-1a62ebbd-587">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-588">
+                    <g class="marker" id="img-1a62ebbd-589">
+                      <g transform="translate(67.71,118.01)" id="img-1a62ebbd-590">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-591">
+                    <g class="marker" id="img-1a62ebbd-592">
+                      <g transform="translate(68.95,118.01)" id="img-1a62ebbd-593">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-594">
+                    <g class="marker" id="img-1a62ebbd-595">
+                      <g transform="translate(48.93,121.77)" id="img-1a62ebbd-596">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-597">
+                    <g class="marker" id="img-1a62ebbd-598">
+                      <g transform="translate(50.03,121.77)" id="img-1a62ebbd-599">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-600">
+                    <g class="marker" id="img-1a62ebbd-601">
+                      <g transform="translate(50.16,121.77)" id="img-1a62ebbd-602">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-603">
+                    <g class="marker" id="img-1a62ebbd-604">
+                      <g transform="translate(69.77,125.53)" id="img-1a62ebbd-605">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-606">
+                    <g class="marker" id="img-1a62ebbd-607">
+                      <g transform="translate(69.63,125.53)" id="img-1a62ebbd-608">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-609">
+                    <g class="marker" id="img-1a62ebbd-610">
+                      <g transform="translate(69.49,125.53)" id="img-1a62ebbd-611">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-612">
+                    <g class="marker" id="img-1a62ebbd-613">
+                      <g transform="translate(76.64,129.3)" id="img-1a62ebbd-614">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-615">
+                    <g class="marker" id="img-1a62ebbd-616">
+                      <g transform="translate(76.68,129.3)" id="img-1a62ebbd-617">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-618">
+                    <g class="marker" id="img-1a62ebbd-619">
+                      <g transform="translate(76.73,129.3)" id="img-1a62ebbd-620">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-621">
+                    <g class="marker" id="img-1a62ebbd-622">
+                      <g transform="translate(51.85,133.06)" id="img-1a62ebbd-623">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-624">
+                    <g class="marker" id="img-1a62ebbd-625">
+                      <g transform="translate(51.83,133.06)" id="img-1a62ebbd-626">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-627">
+                    <g class="marker" id="img-1a62ebbd-628">
+                      <g transform="translate(51.68,133.06)" id="img-1a62ebbd-629">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-630">
+                    <g class="marker" id="img-1a62ebbd-631">
+                      <g transform="translate(69.52,136.82)" id="img-1a62ebbd-632">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-633">
+                    <g class="marker" id="img-1a62ebbd-634">
+                      <g transform="translate(69.37,136.82)" id="img-1a62ebbd-635">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-636">
+                    <g class="marker" id="img-1a62ebbd-637">
+                      <g transform="translate(69.4,136.82)" id="img-1a62ebbd-638">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-639">
+                    <g class="marker" id="img-1a62ebbd-640">
+                      <g transform="translate(68.66,140.59)" id="img-1a62ebbd-641">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-642">
+                    <g class="marker" id="img-1a62ebbd-643">
+                      <g transform="translate(68.65,140.59)" id="img-1a62ebbd-644">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-645">
+                    <g class="marker" id="img-1a62ebbd-646">
+                      <g transform="translate(67.93,140.59)" id="img-1a62ebbd-647">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-648">
+                    <g class="marker" id="img-1a62ebbd-649">
+                      <g transform="translate(69.56,144.35)" id="img-1a62ebbd-650">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-651">
+                    <g class="marker" id="img-1a62ebbd-652">
+                      <g transform="translate(69.55,144.35)" id="img-1a62ebbd-653">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-654">
+                    <g class="marker" id="img-1a62ebbd-655">
+                      <g transform="translate(69.34,144.35)" id="img-1a62ebbd-656">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-657">
+                    <g class="marker" id="img-1a62ebbd-658">
+                      <g transform="translate(68.4,148.11)" id="img-1a62ebbd-659">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-660">
+                    <g class="marker" id="img-1a62ebbd-661">
+                      <g transform="translate(68.35,148.11)" id="img-1a62ebbd-662">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-663">
+                    <g class="marker" id="img-1a62ebbd-664">
+                      <g transform="translate(67.55,148.11)" id="img-1a62ebbd-665">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-666">
+                    <g class="marker" id="img-1a62ebbd-667">
+                      <g transform="translate(71.62,151.87)" id="img-1a62ebbd-668">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-669">
+                    <g class="marker" id="img-1a62ebbd-670">
+                      <g transform="translate(71.64,151.87)" id="img-1a62ebbd-671">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-672">
+                    <g class="marker" id="img-1a62ebbd-673">
+                      <g transform="translate(71.4,151.87)" id="img-1a62ebbd-674">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-675">
+                    <g class="marker" id="img-1a62ebbd-676">
+                      <g transform="translate(72.84,155.64)" id="img-1a62ebbd-677">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-678">
+                    <g class="marker" id="img-1a62ebbd-679">
+                      <g transform="translate(72.91,155.64)" id="img-1a62ebbd-680">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-681">
+                    <g class="marker" id="img-1a62ebbd-682">
+                      <g transform="translate(72.21,155.64)" id="img-1a62ebbd-683">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+        <g class="guide ylabels" font-size="3.53" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#000000" id="img-1a62ebbd-684">
+          <g transform="translate(39.7,155.64)" id="img-1a62ebbd-685">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">DWT</text>
+            </g>
+          </g>
+          <g transform="translate(39.7,151.87)" id="img-1a62ebbd-686">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">WPT-L4</text>
+            </g>
+          </g>
+          <g transform="translate(39.7,148.11)" id="img-1a62ebbd-687">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">WPT-L8</text>
+            </g>
+          </g>
+          <g transform="translate(39.7,144.35)" id="img-1a62ebbd-688">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">WPT-BT</text>
+            </g>
+          </g>
+          <g transform="translate(39.7,140.59)" id="img-1a62ebbd-689">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">JBB</text>
+            </g>
+          </g>
+          <g transform="translate(39.7,136.82)" id="img-1a62ebbd-690">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">LSDB</text>
+            </g>
+          </g>
+          <g transform="translate(39.7,133.06)" id="img-1a62ebbd-691">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">ACWT</text>
+            </g>
+          </g>
+          <g transform="translate(39.7,129.3)" id="img-1a62ebbd-692">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">ACWPT-L4</text>
+            </g>
+          </g>
+          <g transform="translate(39.7,125.53)" id="img-1a62ebbd-693">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">ACWPT-L8</text>
+            </g>
+          </g>
+          <g transform="translate(39.7,121.77)" id="img-1a62ebbd-694">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">ACWPT-BT</text>
+            </g>
+          </g>
+          <g transform="translate(39.7,118.01)" id="img-1a62ebbd-695">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">ACJBB</text>
+            </g>
+          </g>
+          <g transform="translate(39.7,114.24)" id="img-1a62ebbd-696">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">ACLSDB</text>
+            </g>
+          </g>
+          <g transform="translate(39.7,110.48)" id="img-1a62ebbd-697">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">SDWT</text>
+            </g>
+          </g>
+          <g transform="translate(39.7,106.72)" id="img-1a62ebbd-698">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">SWPT-L4</text>
+            </g>
+          </g>
+          <g transform="translate(39.7,102.96)" id="img-1a62ebbd-699">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">SWPT-L8</text>
+            </g>
+          </g>
+          <g transform="translate(39.7,99.19)" id="img-1a62ebbd-700">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">SWPT-BT</text>
+            </g>
+          </g>
+          <g transform="translate(39.7,95.43)" id="img-1a62ebbd-701">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">SJBB</text>
+            </g>
+          </g>
+          <g transform="translate(39.7,91.67)" id="img-1a62ebbd-702">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">SLSDB</text>
+            </g>
+          </g>
+        </g>
+        <g font-size="4.23" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#000000" stroke="#000000" stroke-opacity="0.000" id="img-1a62ebbd-703">
+          <g transform="translate(16.91,121.65)" id="img-1a62ebbd-704">
+            <g class="primitive">
+              <text text-anchor="middle" dy="0.35em" transform="rotate(-90,0, 2)">RelErrorShrink</text>
+            </g>
+          </g>
+        </g>
+        <g clip-path="url(#img-1a62ebbd-705)">
+          <g id="img-1a62ebbd-706">
+            <g pointer-events="visible" stroke-width="0.3" fill="#000000" fill-opacity="0.000" stroke="#000000" stroke-opacity="0.000" class="guide background" id="img-1a62ebbd-707">
+              <g transform="translate(70.77,52.92)" id="img-1a62ebbd-708">
+                <path d="M-30.07,-32.87 L30.07,-32.87 30.07,32.87 -30.07,32.87  z" class="primitive"/>
+              </g>
+            </g>
+            <g class="guide ygridlines xfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="img-1a62ebbd-709">
+              <g transform="translate(70.77,82.13)" id="img-1a62ebbd-710">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(70.77,78.48)" id="img-1a62ebbd-711">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(70.77,74.83)" id="img-1a62ebbd-712">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(70.77,71.18)" id="img-1a62ebbd-713">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(70.77,67.53)" id="img-1a62ebbd-714">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(70.77,63.87)" id="img-1a62ebbd-715">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(70.77,60.22)" id="img-1a62ebbd-716">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(70.77,56.57)" id="img-1a62ebbd-717">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(70.77,52.92)" id="img-1a62ebbd-718">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(70.77,49.27)" id="img-1a62ebbd-719">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(70.77,45.61)" id="img-1a62ebbd-720">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(70.77,41.96)" id="img-1a62ebbd-721">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(70.77,38.31)" id="img-1a62ebbd-722">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(70.77,34.66)" id="img-1a62ebbd-723">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(70.77,31.01)" id="img-1a62ebbd-724">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(70.77,27.36)" id="img-1a62ebbd-725">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+              <g transform="translate(70.77,23.7)" id="img-1a62ebbd-726">
+                <path fill="none" d="M-30.07,0 L30.07,0 " class="primitive"/>
+              </g>
+            </g>
+            <g class="guide xgridlines yfixed" stroke-dasharray="0.5,0.5" stroke-width="0.2" stroke="#D0D0E0" id="img-1a62ebbd-727">
+              <g transform="translate(42.7,52.92)" id="img-1a62ebbd-728">
+                <path fill="none" d="M0,-32.87 L0,32.87 " class="primitive"/>
+              </g>
+              <g transform="translate(61.41,52.92)" id="img-1a62ebbd-729">
+                <path fill="none" d="M0,-32.87 L0,32.87 " class="primitive"/>
+              </g>
+              <g transform="translate(80.13,52.92)" id="img-1a62ebbd-730">
+                <path fill="none" d="M0,-32.87 L0,32.87 " class="primitive"/>
+              </g>
+              <g transform="translate(98.84,52.92)" id="img-1a62ebbd-731">
+                <path fill="none" d="M0,-32.87 L0,32.87 " class="primitive"/>
+              </g>
+            </g>
+            <g class="plotpanel" id="img-1a62ebbd-732">
+              <metadata>
+                <boundingbox value="40.69666666666667mm 20.051999999999996mm 60.144999999999996mm 65.73316666666666mm"/>
+                <unitbox value="9.465669249265295 18.5 16.06866150146941 -18.0"/>
+              </metadata>
+              <g class="yfixed" id="img-1a62ebbd-733">
+                <g stroke-dasharray="none" stroke-width="2" stroke="#808080" id="img-1a62ebbd-734">
+                  <g transform="translate(63.51,52.92)" id="img-1a62ebbd-735">
+                    <path fill="none" d="M0,-32.87 L0,32.87 " class="primitive"/>
+                  </g>
+                </g>
+              </g>
+              <g class="geometry" id="img-1a62ebbd-736">
+                <g stroke-width="0.3" id="img-1a62ebbd-737">
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-738">
+                    <g class="marker" id="img-1a62ebbd-739">
+                      <g transform="translate(74.5,21.88)" id="img-1a62ebbd-740">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-741">
+                    <g class="marker" id="img-1a62ebbd-742">
+                      <g transform="translate(74.12,21.88)" id="img-1a62ebbd-743">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-744">
+                    <g class="marker" id="img-1a62ebbd-745">
+                      <g transform="translate(74.4,21.88)" id="img-1a62ebbd-746">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-747">
+                    <g class="marker" id="img-1a62ebbd-748">
+                      <g transform="translate(72.23,25.53)" id="img-1a62ebbd-749">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-750">
+                    <g class="marker" id="img-1a62ebbd-751">
+                      <g transform="translate(71.75,25.53)" id="img-1a62ebbd-752">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-753">
+                    <g class="marker" id="img-1a62ebbd-754">
+                      <g transform="translate(71.82,25.53)" id="img-1a62ebbd-755">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-756">
+                    <g class="marker" id="img-1a62ebbd-757">
+                      <g transform="translate(82.21,29.18)" id="img-1a62ebbd-758">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-759">
+                    <g class="marker" id="img-1a62ebbd-760">
+                      <g transform="translate(81.73,29.18)" id="img-1a62ebbd-761">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-762">
+                    <g class="marker" id="img-1a62ebbd-763">
+                      <g transform="translate(80.72,29.18)" id="img-1a62ebbd-764">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-765">
+                    <g class="marker" id="img-1a62ebbd-766">
+                      <g transform="translate(71.15,32.83)" id="img-1a62ebbd-767">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-768">
+                    <g class="marker" id="img-1a62ebbd-769">
+                      <g transform="translate(70.63,32.83)" id="img-1a62ebbd-770">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-771">
+                    <g class="marker" id="img-1a62ebbd-772">
+                      <g transform="translate(70.69,32.83)" id="img-1a62ebbd-773">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-774">
+                    <g class="marker" id="img-1a62ebbd-775">
+                      <g transform="translate(79.91,36.49)" id="img-1a62ebbd-776">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-777">
+                    <g class="marker" id="img-1a62ebbd-778">
+                      <g transform="translate(79.77,36.49)" id="img-1a62ebbd-779">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-780">
+                    <g class="marker" id="img-1a62ebbd-781">
+                      <g transform="translate(79.51,36.49)" id="img-1a62ebbd-782">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-783">
+                    <g class="marker" id="img-1a62ebbd-784">
+                      <g transform="translate(80.67,40.14)" id="img-1a62ebbd-785">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-786">
+                    <g class="marker" id="img-1a62ebbd-787">
+                      <g transform="translate(80.66,40.14)" id="img-1a62ebbd-788">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-789">
+                    <g class="marker" id="img-1a62ebbd-790">
+                      <g transform="translate(80.47,40.14)" id="img-1a62ebbd-791">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-792">
+                    <g class="marker" id="img-1a62ebbd-793">
+                      <g transform="translate(69.86,43.79)" id="img-1a62ebbd-794">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-795">
+                    <g class="marker" id="img-1a62ebbd-796">
+                      <g transform="translate(69.23,43.79)" id="img-1a62ebbd-797">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-798">
+                    <g class="marker" id="img-1a62ebbd-799">
+                      <g transform="translate(68.55,43.79)" id="img-1a62ebbd-800">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-801">
+                    <g class="marker" id="img-1a62ebbd-802">
+                      <g transform="translate(70.6,47.44)" id="img-1a62ebbd-803">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-804">
+                    <g class="marker" id="img-1a62ebbd-805">
+                      <g transform="translate(69.95,47.44)" id="img-1a62ebbd-806">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-807">
+                    <g class="marker" id="img-1a62ebbd-808">
+                      <g transform="translate(69.24,47.44)" id="img-1a62ebbd-809">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-810">
+                    <g class="marker" id="img-1a62ebbd-811">
+                      <g transform="translate(71.78,51.09)" id="img-1a62ebbd-812">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-813">
+                    <g class="marker" id="img-1a62ebbd-814">
+                      <g transform="translate(71.15,51.09)" id="img-1a62ebbd-815">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-816">
+                    <g class="marker" id="img-1a62ebbd-817">
+                      <g transform="translate(70.13,51.09)" id="img-1a62ebbd-818">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-819">
+                    <g class="marker" id="img-1a62ebbd-820">
+                      <g transform="translate(69.76,54.74)" id="img-1a62ebbd-821">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-822">
+                    <g class="marker" id="img-1a62ebbd-823">
+                      <g transform="translate(69.16,54.74)" id="img-1a62ebbd-824">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-825">
+                    <g class="marker" id="img-1a62ebbd-826">
+                      <g transform="translate(68.4,54.74)" id="img-1a62ebbd-827">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-828">
+                    <g class="marker" id="img-1a62ebbd-829">
+                      <g transform="translate(77.61,58.4)" id="img-1a62ebbd-830">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-831">
+                    <g class="marker" id="img-1a62ebbd-832">
+                      <g transform="translate(77.49,58.4)" id="img-1a62ebbd-833">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-834">
+                    <g class="marker" id="img-1a62ebbd-835">
+                      <g transform="translate(76.75,58.4)" id="img-1a62ebbd-836">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-837">
+                    <g class="marker" id="img-1a62ebbd-838">
+                      <g transform="translate(70.72,62.05)" id="img-1a62ebbd-839">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-840">
+                    <g class="marker" id="img-1a62ebbd-841">
+                      <g transform="translate(70.69,62.05)" id="img-1a62ebbd-842">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-843">
+                    <g class="marker" id="img-1a62ebbd-844">
+                      <g transform="translate(70.63,62.05)" id="img-1a62ebbd-845">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-846">
+                    <g class="marker" id="img-1a62ebbd-847">
+                      <g transform="translate(70.12,65.7)" id="img-1a62ebbd-848">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-849">
+                    <g class="marker" id="img-1a62ebbd-850">
+                      <g transform="translate(69.74,65.7)" id="img-1a62ebbd-851">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-852">
+                    <g class="marker" id="img-1a62ebbd-853">
+                      <g transform="translate(66.63,65.7)" id="img-1a62ebbd-854">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-855">
+                    <g class="marker" id="img-1a62ebbd-856">
+                      <g transform="translate(68.1,69.35)" id="img-1a62ebbd-857">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-858">
+                    <g class="marker" id="img-1a62ebbd-859">
+                      <g transform="translate(67.44,69.35)" id="img-1a62ebbd-860">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-861">
+                    <g class="marker" id="img-1a62ebbd-862">
+                      <g transform="translate(64.37,69.35)" id="img-1a62ebbd-863">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-864">
+                    <g class="marker" id="img-1a62ebbd-865">
+                      <g transform="translate(69.73,73)" id="img-1a62ebbd-866">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-867">
+                    <g class="marker" id="img-1a62ebbd-868">
+                      <g transform="translate(70.34,73)" id="img-1a62ebbd-869">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-870">
+                    <g class="marker" id="img-1a62ebbd-871">
+                      <g transform="translate(67.18,73)" id="img-1a62ebbd-872">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-873">
+                    <g class="marker" id="img-1a62ebbd-874">
+                      <g transform="translate(68.19,76.66)" id="img-1a62ebbd-875">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-876">
+                    <g class="marker" id="img-1a62ebbd-877">
+                      <g transform="translate(67.21,76.66)" id="img-1a62ebbd-878">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-879">
+                    <g class="marker" id="img-1a62ebbd-880">
+                      <g transform="translate(63.4,76.66)" id="img-1a62ebbd-881">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-882">
+                    <g class="marker" id="img-1a62ebbd-883">
+                      <g transform="translate(70.51,80.31)" id="img-1a62ebbd-884">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-885">
+                    <g class="marker" id="img-1a62ebbd-886">
+                      <g transform="translate(70.2,80.31)" id="img-1a62ebbd-887">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-888">
+                    <g class="marker" id="img-1a62ebbd-889">
+                      <g transform="translate(69.2,80.31)" id="img-1a62ebbd-890">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Median" fill-opacity="1" stroke="#FFFFFF" fill="#FF6DAE" id="img-1a62ebbd-891">
+                    <g class="marker" id="img-1a62ebbd-892">
+                      <g transform="translate(70,83.96)" id="img-1a62ebbd-893">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Average" fill-opacity="1" stroke="#FFFFFF" fill="#D4CA3A" id="img-1a62ebbd-894">
+                    <g class="marker" id="img-1a62ebbd-895">
+                      <g transform="translate(69.98,83.96)" id="img-1a62ebbd-896">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                  <g class="color_Individual" fill-opacity="1" stroke="#FFFFFF" fill="#00BFFF" id="img-1a62ebbd-897">
+                    <g class="marker" id="img-1a62ebbd-898">
+                      <g transform="translate(69.84,83.96)" id="img-1a62ebbd-899">
+                        <circle cx="0" cy="0" r="1.41" class="primitive"/>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+        <g class="guide ylabels" font-size="3.53" font-family="'PT Sans Caption','Helvetica Neue','Helvetica',sans-serif" fill="#000000" id="img-1a62ebbd-900">
+          <g transform="translate(39.7,83.96)" id="img-1a62ebbd-901">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">DWT</text>
+            </g>
+          </g>
+          <g transform="translate(39.7,80.31)" id="img-1a62ebbd-902">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">WPT-L4</text>
+            </g>
+          </g>
+          <g transform="translate(39.7,76.66)" id="img-1a62ebbd-903">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">WPT-L8</text>
+            </g>
+          </g>
+          <g transform="translate(39.7,73)" id="img-1a62ebbd-904">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">WPT-BT</text>
+            </g>
+          </g>
+          <g transform="translate(39.7,69.35)" id="img-1a62ebbd-905">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">JBB</text>
+            </g>
+          </g>
+          <g transform="translate(39.7,65.7)" id="img-1a62ebbd-906">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">LSDB</text>
+            </g>
+          </g>
+          <g transform="translate(39.7,62.05)" id="img-1a62ebbd-907">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">ACWT</text>
+            </g>
+          </g>
+          <g transform="translate(39.7,58.4)" id="img-1a62ebbd-908">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">ACWPT-L4</text>
+            </g>
+          </g>
+          <g transform="translate(39.7,54.74)" id="img-1a62ebbd-909">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">ACWPT-L8</text>
+            </g>
+          </g>
+          <g transform="translate(39.7,51.09)" id="img-1a62ebbd-910">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">ACWPT-BT</text>
+            </g>
+          </g>
+          <g transform="translate(39.7,47.44)" id="img-1a62ebbd-911">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">ACJBB</text>
+            </g>
+          </g>
+          <g transform="translate(39.7,43.79)" id="img-1a62ebbd-912">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">ACLSDB</text>
+            </g>
+          </g>
+          <g transform="translate(39.7,40.14)" id="img-1a62ebbd-913">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">SDWT</text>
+            </g>
+          </g>
+          <g transform="translate(39.7,36.49)" id="img-1a62ebbd-914">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">SWPT-L4</text>
+            </g>
+          </g>
+          <g transform="translate(39.7,32.83)" id="img-1a62ebbd-915">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">SWPT-L8</text>
+            </g>
+          </g>
+          <g transform="translate(39.7,29.18)" id="img-1a62ebbd-916">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">SWPT-BT</text>
+            </g>
+          </g>
+          <g transform="translate(39.7,25.53)" id="img-1a62ebbd-917">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">SJBB</text>
+            </g>
+          </g>
+          <g transform="translate(39.7,21.88)" id="img-1a62ebbd-918">
+            <g class="primitive">
+              <text text-anchor="end" dy="0.35em">SLSDB</text>
+            </g>
+          </g>
+        </g>
+        <g font-size="4.23" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#000000" stroke="#000000" stroke-opacity="0.000" id="img-1a62ebbd-919">
+          <g transform="translate(16.91,50.92)" id="img-1a62ebbd-920">
+            <g class="primitive">
+              <text text-anchor="middle" dy="0.35em" transform="rotate(-90,0, 2)">VisuShrink</text>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g font-size="4.23" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#000000" stroke="#000000" stroke-opacity="0.000" id="img-1a62ebbd-921">
+    <g transform="translate(8.97,88.46)" id="img-1a62ebbd-922">
+      <g class="primitive">
+        <text text-anchor="middle" dy="0.35em" transform="rotate(-90,0, 2)">transform <tspan font-style="italic"><tspan font-weight="bold">by</tspan></tspan> method</text>
+      </g>
+    </g>
+  </g>
+  <g font-size="4.23" font-family="'PT Sans','Helvetica Neue','Helvetica',sans-serif" fill="#000000" stroke="#000000" stroke-opacity="0.000" id="img-1a62ebbd-923">
+    <g transform="translate(57.89,12.11)" id="img-1a62ebbd-924">
+      <g class="primitive">
+        <text text-anchor="middle" dy="0.6em">Peak Signal-to-Noise Ratio (PSNR)</text>
+      </g>
+    </g>
+  </g>
+</g>
+<g fill="#FFFFFF" id="img-1a62ebbd-925">
+  <g transform="translate(127,3.56)" id="img-1a62ebbd-926">
+    <path d="M-127,-3.56 L127,-3.56 127,3.56 -127,3.56  z" class="primitive"/>
+  </g>
+</g>
+<g fill="#000000" font-size="7.06" id="img-1a62ebbd-927">
+  <g transform="translate(127,7.11)" id="img-1a62ebbd-928">
+    <g class="primitive">
+      <text text-anchor="middle" dy="-0em">Bumps</text>
+    </g>
+  </g>
+</g>
+<defs>
+  <clipPath id="img-1a62ebbd-15">
+    <path d="M139.94,18.05 L229.84,18.05 229.84,162.86 139.94,162.86 " />
+  </clipPath>
+  <clipPath id="img-1a62ebbd-25">
+    <path d="M167.7,89.79 L227.84,89.79 227.84,157.52 167.7,157.52 " />
+  </clipPath>
+  <clipPath id="img-1a62ebbd-243">
+    <path d="M167.7,20.05 L227.84,20.05 227.84,85.79 167.7,85.79 " />
+  </clipPath>
+  <clipPath id="img-1a62ebbd-481">
+    <path d="M12.94,18.05 L102.84,18.05 102.84,162.86 12.94,162.86 " />
+  </clipPath>
+  <clipPath id="img-1a62ebbd-489">
+    <path d="M40.7,89.79 L100.84,89.79 100.84,157.52 40.7,157.52 " />
+  </clipPath>
+  <clipPath id="img-1a62ebbd-705">
+    <path d="M40.7,20.05 L100.84,20.05 100.84,85.79 40.7,85.79 " />
+  </clipPath>
+</defs>
+</svg>

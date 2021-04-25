@@ -7,11 +7,14 @@ In this experiment, we observe the denoising capabilities of the different types
 This experiment is conducted by Zeng Fung Liew and Shozen Dan under the supervision of Professor Naoki Saito at the University of California, Davis.
 
 ## Table of Contents
-1. [Code for denoising experiment](src/denoisingexperiments.jl)
-2. [Code for denoising analysis](src/denoisinganalysis.jl)
+1. [Setup](#setup)
+2. [Results](#results)
 3. [Pluto notebook containing results and report](notebooks/denoising.jl)
+4. Codes
+    * [Denoising experiment](src/denoisingexperiments.jl)
+    * [Denoising analysis](src/denoisinganalysis.jl)
 
-## How to Open and Run Pluto Notebook
+## How to Open and Run Pluto Notebook <a name="setup"></a>
 ### Method 1: Opening notebook directly without downloading any files
 1. Open up the Julia REPL.
 2. (Skip to step 3 if the Pluto package is already installed in Julia).   
@@ -56,3 +59,11 @@ julia> import Pluto; Pluto.run()
 ```
 
 6. Pluto should open up in the default browser. Open up the file by keying in the file path.
+
+## Results <a name="results"></a>
+![](figures/blocks.svg)
+![](figures/bumps.svg)
+![](figures/heavysine.svg)
+![](figures/doppler.svg)
+![](figures/quadchirp.svg)
+![](figures/mishmash.svg)
