@@ -23,6 +23,17 @@ end
 # ╔═╡ 203fb8c8-4358-4908-b616-a691ce329c02
 using Wavelets, LinearAlgebra, Plots, DataFrames, CSV, PlutoUI, WaveletsExt, Statistics, Gadfly
 
+# ╔═╡ d0c98a14-ad3e-4a0b-b889-a3ea86f888f3
+begin
+	try     # open from local directory
+		global testdata = CSV.read("../data/wavelet_test_256.csv", DataFrame)
+	catch   # open from URL
+		using HTTP
+		url = "https://raw.githubusercontent.com/zengfung/WaveletsDenoisingExperiment/master/data/wavelet_test_256.csv"
+		global testdata = CSV.read(url.body, DataFrame)
+	end
+end
+
 # ╔═╡ 53c257e0-96ba-11eb-3615-8bfed63b2c18
 md"# Denoising Experiment"
 
@@ -37,9 +48,6 @@ md"## I. Exploratory Data Analysis"
 
 # ╔═╡ bc641876-9723-4c68-8221-ad03fb695c82
 md"Let's load some test functions"
-
-# ╔═╡ d0c98a14-ad3e-4a0b-b889-a3ea86f888f3
-testdata = CSV.read("../data/wavelet_test_256.csv", DataFrame)
 
 # ╔═╡ b0a28618-7cda-4c05-83d2-b54bbca3f9b5
 md"**Select** a test function"
