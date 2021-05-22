@@ -33,19 +33,19 @@ julia> cd("C:/Users/USER/Documents/WaveletsDenoisingExperiment")
 ```julia
 (@v1.6) pkg> 
 ```
-4. Activate the current environment by typing the following.   
-Note: Step 2 has to be done correctly for this step to work!
+5. Activate the current environment by typing the following.   
+Note: Steps 3-4 has to be done correctly for this step to work!
 ```julia
 (@v1.6) pkg> activate ./notebooks
 (@v1.6) pkg> instantiate
 ```  
 
-5. Exit the package manager mode by hitting the backspace key. Then, type in the following commands:
+6. Exit the package manager mode by hitting the backspace key. Then, type in the following commands:
 ```julia
 julia> import Pluto; Pluto.run()
 ```
 
-6. Pluto should open up in the default browser. Open up the file by keying in the file path.
+7. Pluto should open up in the default browser. Open up the file by keying in the file path.
 
 ### Method 2: Opening notebook directly without downloading any files from this repository
 1. Open up the Julia REPL.
@@ -64,7 +64,7 @@ julia> import Pluto; Pluto.run()
 4. Pluto should open up in the default browser. Copy-paste the following URL into the file path:  
 [https://github.com/zengfung/WaveletsDenoisingExperiment/blob/master/notebooks/denoising.jl](https://github.com/zengfung/WaveletsDenoisingExperiment/blob/master/notebooks/denoising.jl)
 
-**Note:** When opening the notebooks using this method, Julia automatically downloads the notebook into the `~/.julia/pluto_notebooks` folder in your local machine.
+**Note:** When opening the notebooks using this method, Julia automatically downloads the notebook into the `~/.julia/pluto_notebooks` folder in your local machine. You may want to delete them once you are done.
 
 
 ## Results <a name="results"></a>
