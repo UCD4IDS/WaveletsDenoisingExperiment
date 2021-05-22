@@ -3,7 +3,6 @@ using
     WaveletsExt,
     LinearAlgebra,
     Random, 
-    CSV, 
     DataFrames, 
     Statistics
 
@@ -30,7 +29,7 @@ function singlecomparison(x::Vector{T}, wt::DiscreteWavelet,
     n = size(x,1)
     result = Array{AbstractFloat, 2}(undef, (109,3))
     # generate signals
-    X₀ = generatesignals(x, samples, shifts)
+    X₀ = duplicatesignals(x, samples, shifts)
     X = hcat([addnoise(X₀[:,i], noise) for i in 1:samples]...)
 
     # NOISY
@@ -744,24 +743,23 @@ end
 
 
 wt = wavelet(WT.db4)
-# get signals
-wv = CSV.read("./data/wavelet_test_256.csv", DataFrame)
+L = 8
 
 # compute and save results
 samples = 100
 repeats = 50
 results = Dict{String, DataFrame}()
-results["blocks"] = repeatedcomparisons(wv.blocks, wt, 0.5, 2, samples, repeats)
+results["blocks"] = repeatedcomparisons(generatesignals(:blocks,L), wt, 0.5, 2, samples, repeats)
 CSV.write("./results/blocks.csv", results["blocks"])
-results["bumps"] = repeatedcomparisons(wv.bumps, wt, 0.5, 2, samples, repeats)
+results["bumps"] = repeatedcomparisons(generatesignals(:bumps,L), wt, 0.5, 2, samples, repeats)
 CSV.write("./results/bumps.csv", results["bumps"])
-results["heavysine"] = repeatedcomparisons(wv.heavy_sine, wt, 0.5, 2, samples, repeats)
+results["heavysine"] = repeatedcomparisons(generatesignals(:heavysine,L), wt, 0.5, 2, samples, repeats)
 CSV.write("./results/heavysine.csv", results["heavysine"])
-results["doppler"] = repeatedcomparisons(wv.doppler, wt, 0.5, 2, samples, repeats)
+results["doppler"] = repeatedcomparisons(generatesignals(:doppler,L), wt, 0.5, 2, samples, repeats)
 CSV.write("./results/doppler.csv", results["doppler"])
-results["quadchirp"] = repeatedcomparisons(wv.quadchirp, wt, 0.5, 2, samples, repeats)
+results["quadchirp"] = repeatedcomparisons(generatesignals(:quadchirp,L), wt, 0.5, 2, samples, repeats)
 CSV.write("./results/quadchirp.csv", results["quadchirp"])
-results["mishmash"] = repeatedcomparisons(wv.mishmash, wt, 0.5, 2, samples, repeats)
+results["mishmash"] = repeatedcomparisons(generatesignals(:mishmash,L), wt, 0.5, 2, samples, repeats)
 CSV.write("./results/mishmash.csv", results["mishmash"])
 
 # display results
