@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.14.5
+# v0.14.4
 
 using Markdown
 using InteractiveUtils
@@ -38,7 +38,7 @@ md"# Denoising Experiment"
 md"""
 ## Introduction
 
-Signal denoising is an important step in many signal processing and analysis related work as it helps reduce noise in the data while retaining important information. Throughout the years, many signal denoising algorithms have been developed. Thresholding is a simple yet effective technique of denoising signals and images. Here, we look into some thresholding methods with respect to different types of wavelet transforms.
+Signal denoising is an important step in many signal processing and analysis as it reduce noise in the data while retaining important information. Among the various denoising methods, thresholding is a simple but effective technique for denoising signals and images. In this notebook, we look into some thresholding methods with respect to different types of wavelet transforms.
 
 The two main packages used in this experiment are Wavelets.jl and WaveletsExt.jl.
 
@@ -94,9 +94,9 @@ md"""
 
 # ╔═╡ 46e30602-a850-4175-b4bf-b4ef4b5359aa
 md"""
-## Exploratory Data Analysis
+## A Brief Demonstration
 
-In this section, we will have a quick look and understanding of what our test signals look like, and how thresholding visually results in signals that better resemble the original signals.
+The purpose of this section is for the us to gain an general understanding of signal denoising via wavelets. We can choose from 6 standard test signals and adjust the magnitude of random noise we want to add. Finally, we can choose between two types of thresholding (hard or soft) and adjust our threshold value to see how it effects the resulting denoised signal.
 """
 
 # ╔═╡ b0a28618-7cda-4c05-83d2-b54bbca3f9b5
@@ -104,7 +104,7 @@ md"""
 **Select** a test function. These signals are obtained from D. Donoho and I. Johnstone in ["Adapting to Unknown Smoothness via Wavelet Shrinkage"](http://statweb.stanford.edu/~imj/WEBLIST/1995/ausws.pdf) Preprint Stanford, January 93, p 27-28.
 
 $(@bind signal_name_test Select(
-	["blocks", "bumps", "heavy_sine", "doppler", "quadchirp", "mishmash"],
+	["blocks", "bumps", "heavysine", "doppler", "quadchirp", "mishmash"],
 	default = "doppler"
 ))
 """
@@ -126,7 +126,7 @@ md"""
 md"""
 **Select** the value $L$ for signal of length $2^L$
 
-$(@bind max_dec_level_test Slider(6:1:10, default=8, show_value=true))
+$(@bind max_dec_level_test Slider(6:1:10, default=7, show_value=true))
 """
 
 # ╔═╡ 458a5a1e-c453-4199-befe-2bf4db6825ae
@@ -134,13 +134,6 @@ md"""
 **Adjust** the magnitude of Gaussian noise
 
 $(@bind noise_size_test Slider(0:0.01:1, default=0.3, show_value=true))
-"""
-
-# ╔═╡ 7c0dba17-baf3-4b9c-b1c5-486f7e4515f4
-md"""
-The `addnoise` function will add Gaussian noise that is proportional to the total energy of the signal.
-
-**Do not change anything in the following block of code.**
 """
 
 # ╔═╡ a184ae65-7947-4ffb-b751-8b6e97a8608b
@@ -153,30 +146,26 @@ end;
 
 # ╔═╡ faa0a4ea-7849-408a-ac0f-c5cca8761aee
 md"""
-The following plots show us the decomposed noisy signal using autocorrelation discrete wavelet transform, stationary discrete wavelet transform, and the regular discrete wavelet transform. 
+The plots above shows the decomposition levels, with finest at the top and coursest at the bottom, of the noisy signal via 1) autocorrelation discrete wavelet transform (ACWT), 2) stationary discrete wavelet transform (SWT), and 3) the regular discrete wavelet transform (DWT). 
 
-For ACWT and SWT, we can see that the signals are decomposed well, and that the bottom signals look similar to the original signal.
+From them, we can see that ACWT and SWT are better at retaining the shape of the original signal compared to the DWT. 
 
-**Note:** As the regular wavelet transform is non-redundant, ie. downsampling takes place with a factor of 2 at every level, one cannot conclude that the regular transform of noisy signal is doing a bad job. The wavelet coefficients for the regular DWT were padded and extended such that they obtain the length of the original signal. This is done strictly for comparison and illustration purposes only.
+**Note:** As the DWT is non-redundant (ie. downsampling takes place with a factor of 2 at every level) we cannot conclude that DWT is inferior simply based on a visual comparison with ACWT and SWT. The wavelet coefficients for the DWT were padded and extended such that they obtain the length of the original signal. This is done strictly for illustration purposes only.
 """
 
-# ╔═╡ 356d75f4-6cc1-4062-8ef6-3cc6a9c2d9a7
-md"Plot a histogram of wavelet coefficients:"
+# ╔═╡ f313da22-8460-462f-8c0d-2055aef00d5e
+md"""
+In order to remove the noise from the signal, we take the following two steps:
+
+1. Threshold the wavelet coefficients. We can use either hard thresholding or soft thresholding.
+2. Reconstruct the signal from the thresholded coefficients.
+"""
 
 # ╔═╡ 9eae2f5c-1f47-43d8-a7ec-0767e50e6a9b
 md"""
 **Select** threshold type
 
 $(@bind th_method_test Radio(["Hard", "Soft"], default = "Hard"))
-"""
-
-# ╔═╡ e214b298-04d8-473f-b56e-5f446374078c
-md"""
-Now that we have analyzed the properties of the signals and the effects of noise on them, let's observe the denoised/thresholded signals below.
-
-To do so, we will have to:
-1. Threshold the wavelet coefficients.
-2. Reconstruct the signal based on the thresholded coefficients.
 """
 
 # ╔═╡ 11e63c9a-6124-4122-9a86-ceed926d25d2
@@ -193,7 +182,7 @@ md"""
 	[
 		"blocks" => "Blocks", 
 		"bumps" => "Bumps", 
-		"heavy_sine" => "Heavy sine", 
+		"heavysine" => "Heavy sine", 
 		"doppler" => "Doppler", 
 		"quadchirp" => "Quadchirp", 
 		"mishmash" => "Mishmash"
@@ -231,22 +220,28 @@ md"""
 ))
 """
 
-# ╔═╡ 851b04bb-e382-4a0a-98f6-7d4b983ca5ab
+# ╔═╡ 49db1715-8d7d-4815-9972-8f3fc6895754
 begin
 	wt_test = wavelet(eval(Meta.parse(wavelet_type)))
 	
 	x_test = generatesignals(Symbol(signal_name_test), max_dec_level_test)
-	p1_test = Plots.plot(x_test, ylim = (minimum(x_test)-1,maximum(x_test)+1), label = "Original signal", title = "Original vs Noisy")
+	p1_test = Plots.plot(x_test, 
+		ylim = (minimum(x_test)-1,maximum(x_test)+1),
+		lc = "black",
+		lw = 2,
+		label = "Original signal", 
+		xlabel = "Original vs Noisy"
+	)
 	x_noisy_test = addnoise(x_test, noise_size_test)
-	Plots.plot!(x_noisy_test, label = "Noisy signal");
+	Plots.plot!(x_noisy_test, lw =1.5, label = "Noisy signal");
 	
 	y_test = acwt(x_noisy_test, wt_test, max_dec_level_test÷2);
 	p2_test = WaveletsExt.wiggle(y_test, Overlap=false)
-	Plots.plot!(p2_test, title = "Autocorrelation Transform of Noisy Signal")
+	Plots.plot!(p2_test, xlabel = "Autocorrelation Transform of Noisy Signal")
 	
 	z_test = sdwt(x_noisy_test, wt_test, max_dec_level_test÷2);
 	p3_test = WaveletsExt.wiggle(z_test, Overlap=false)
-	Plots.plot!(p3_test, title = "Stationary Transform of Noisy Signal")
+	Plots.plot!(p3_test, xlabel = "Stationary Transform of Noisy Signal")
 	
 	function extend_signal(x::AbstractVector{T}, l::Int) where T
 		n = length(x)					# signal length
@@ -269,17 +264,14 @@ begin
 	w_test = dwt(x_noisy_test, wt_test, max_dec_level_test÷2);
 	we_test = extend_signal(w_test, max_dec_level_test÷2)
 	p4_test = WaveletsExt.wiggle(we_test, Overlap=false)
-	Plots.plot!(p4_test, title = "Regular Transform of Noisy Signal")
+	Plots.plot!(p4_test, xlabel = "Regular Transform of Noisy Signal")
 	
 	Plots.plot(p1_test, p2_test, p3_test, p4_test, layout = (4,1), size=(600, 800))
 end
 
-# ╔═╡ 341c2551-b625-47a0-9163-3c0c0e7d4e13
-Plots.histogram(vec(abs.(y_test)), legend = false)
-
 # ╔═╡ dbed8579-afa4-4a4d-b0bb-bd34877fa272
 md"""
-Before we dig deeper into threshold value selection, let's understand what thresholding does to a noisy signal by playing with the threshold slider below.
+The slider below allows us to adjust the threshold value to observe the effect on the reconstructed/denoised signal. 
 
 **Select** a threshold value
 
@@ -371,16 +363,16 @@ md"""
 # ╔═╡ cd9e259e-8bb3-497b-ac7f-f89a003c8032
 begin
 	x = generatesignals(Symbol(signal_name), max_dec_level)
-	p3 = Plots.plot(x, ylim = (minimum(x)-1,maximum(x)+1), label = "Original signal")
+	p3 = Plots.plot(
+		x, 
+		ylim = (minimum(x)-1,maximum(x)+1), 
+		lc = "black",
+		lw = 2,
+		label = "Original signal"
+	)
 	x_noisy = addnoise(x, noise_size)
-	Plots.plot!(x_noisy, label = "Noisy signal");
+	Plots.plot!(x_noisy, lw = 1.5, label = "Noisy signal");
 end
-
-# ╔═╡ 3246e8b5-251f-4398-b21c-397341f2542e
-md"**Preparing** the data
-* Generate a set of original signals $\rightarrow$ `X₀`
-* Add noise to original signals $\rightarrow$ `X`
-"
 
 # ╔═╡ 82e713f8-c870-43d2-a849-e3b401b00459
 begin
@@ -420,13 +412,15 @@ begin
 end
 
 # ╔═╡ 95081e88-a623-4e91-99c1-8b254b366dac
-md"Once you are satisfied with the selected parameters, enabling the **autorun** option above will prompt the experiment to run."
+md"Once you are satisfied with the selected parameters, enabling the **autorun** option above will prompt the experiment to run.
+
+For the following sections, the code is not displayed in order to keep this notebook short. To display the code hover your pointer over the blank areas and click on the eye symbol that will appear to the left."
 
 # ╔═╡ 126c41e7-dd65-46c6-8c5b-2439f5624fd5
 md"# Non-Redundant Transforms"
 
 # ╔═╡ 17bdc97a-4a0b-4931-a5c6-866f0c814601
-md"### 1. Discrete Wavelet Transform"
+md"#### Discrete Wavelet Transform"
 
 # ╔═╡ 01e43234-2194-451d-9010-176aa4799fdb
 begin
@@ -609,7 +603,7 @@ begin
 end;
 
 # ╔═╡ ae8059bd-5b5b-4ff2-a6f0-5ce672bdd54d
-md"### 2. Wavelet Packet Transform - Level $(max_dec_level÷2)"
+md"#### Wavelet Packet Transform - Level $(max_dec_level÷2)"
 
 # ╔═╡ cf55c5cb-ead6-40b6-896a-8f7e01613a46
 begin
@@ -811,7 +805,7 @@ begin
 end;
 
 # ╔═╡ c95ebbed-3d9a-4be2-943b-08c86923ad89
-md"### 3. Wavelet Packet Transform - Level $(max_dec_level)"
+md"#### Wavelet Packet Transform - Level $(max_dec_level)"
 
 # ╔═╡ 61d745d8-5c74-479b-9698-cd50bb68b3c7
 begin
@@ -1010,7 +1004,7 @@ begin
 end;
 
 # ╔═╡ e5738623-4ea8-4866-a1da-7e849960f4e0
-md"### 4. Wavelet Packet Transform - Best Basis"
+md"#### Wavelet Packet Transform - Best Basis"
 
 # ╔═╡ c34c1f0c-7cfd-404b-aa59-d4bb6aa9628f
 begin
@@ -1209,7 +1203,7 @@ begin
 end;
 
 # ╔═╡ 069497ac-fdae-4ddf-8983-026f7d46f07a
-md"### 5. Joint Best Basis"
+md"#### Joint Best Basis"
 
 # ╔═╡ cd132003-1384-41a4-bfb4-91247630a24e
 begin
@@ -1393,7 +1387,7 @@ begin
 end;
 
 # ╔═╡ b075d6d8-228a-4ce2-8647-e2c6b962ba48
-md"### 6. Least Statistically Dependent Basis"
+md"#### Least Statistically Dependent Basis"
 
 # ╔═╡ a7d6a82c-b143-4e8e-94ee-e8999eefc0f1
 begin
@@ -1583,7 +1577,7 @@ md"# Redundant Transforms"
 md"## 1. Autocorrelation Wavelet Transforms"
 
 # ╔═╡ 7c3ae1ea-887d-4af6-ba18-7fd06ea6354d
-md"### 1.1 Autocorrelation Discrete Wavelet Transform"
+md"#### Autocorrelation Discrete Wavelet Transform"
 
 # ╔═╡ 89a56a57-a5b9-4380-a618-97d8b901c01b
 begin
@@ -1766,7 +1760,7 @@ begin
 end;
 
 # ╔═╡ 115edde2-b1ba-4d86-9b1a-e05d76026bcf
-md"### 1.2 Autocorrelation Packet Transform - Level $(max_dec_level÷2)"
+md"#### Autocorrelation Packet Transform - Level $(max_dec_level÷2)"
 
 # ╔═╡ c52bd741-00cb-4cf2-97e3-b8dbba3af9ad
 begin
@@ -2013,7 +2007,7 @@ begin
 end;
 
 # ╔═╡ a4b3694e-2ca5-46a5-b1ce-44c2f7ec2006
-md"### 1.3 Autocorrelation Packet Transform - Level $(max_dec_level)"
+md"#### Autocorrelation Packet Transform - Level $(max_dec_level)"
 
 # ╔═╡ 250d22dd-1d15-45d4-8aa4-3de1f37b164c
 begin
@@ -2209,7 +2203,7 @@ begin
 end;
 
 # ╔═╡ 7d057183-c8b2-4ebd-9ee9-aa7998d9a6d5
-md"### 1.4 Autocorrelation Packet Transform - Best Basis"
+md"#### Autocorrelation Packet Transform - Best Basis"
 
 # ╔═╡ e484c5ca-1e21-4cc2-b1a6-7e1aa7958952
 begin
@@ -2404,7 +2398,7 @@ begin
 end;
 
 # ╔═╡ 084decfb-5c6f-466d-a5f8-ddf8cc863d8c
-md"### 1.5 Autocorrelation Joint Best Basis"
+md"#### Autocorrelation Joint Best Basis"
 
 # ╔═╡ c5a90584-fc46-4f7e-8633-6866001dadf6
 begin
@@ -2591,7 +2585,7 @@ begin
 end;
 
 # ╔═╡ 6059509f-2237-4309-88cc-e1e777e2abe0
-md"### 1.6 Autocorrelation Least Statistically Dependent Basis"
+md"#### Autocorrelation Least Statistically Dependent Basis"
 
 # ╔═╡ 991f747c-c4ee-4a95-9745-85c728974af5
 begin
@@ -2781,7 +2775,7 @@ end;
 md"## 2. Stationary Wavelet Transforms"
 
 # ╔═╡ d7da11fd-8768-4ac7-81af-82f68e794e1a
-md"### 2.1 Stationary Discrete Wavelet Transform"
+md"#### Stationary Discrete Wavelet Transform"
 
 # ╔═╡ ab9b089f-fbb7-4436-8d6a-963db1e95670
 begin
@@ -2964,7 +2958,7 @@ begin
 end;
 
 # ╔═╡ 72204688-6346-4ff5-b443-839cbd7074d8
-md"### 2.2 Stationary Wavelet Packet Transform - Level $(max_dec_level÷2)"
+md"#### Stationary Wavelet Packet Transform - Level $(max_dec_level÷2)"
 
 # ╔═╡ 6d09613a-5676-4b45-bf44-7e2c40bb71c9
 begin
@@ -3211,7 +3205,7 @@ begin
 end;
 
 # ╔═╡ 25de9867-d737-496c-8e0c-29bcdca898e8
-md"### 2.3 Stationary Wavelet Packet Transform - Level $(max_dec_level)"
+md"#### Stationary Wavelet Packet Transform - Level $(max_dec_level)"
 
 # ╔═╡ 3525a716-0210-4cd2-b780-3f1c27297e09
 begin
@@ -3407,7 +3401,7 @@ begin
 end;
 
 # ╔═╡ 8774496e-a184-4c9a-9335-d2f184673cf5
-md"### 2.4 Stationary Wavelet Packet Transform - Best Basis"
+md"#### Stationary Wavelet Packet Transform - Best Basis"
 
 # ╔═╡ 609937c6-8b9f-4987-8f46-ec55ce05e861
 begin
@@ -3602,7 +3596,7 @@ begin
 end;
 
 # ╔═╡ aa5fff0c-9182-4568-b657-ca48c33de141
-md"### 2.5 Stationary Joint Best Basis"
+md"#### Stationary Joint Best Basis"
 
 # ╔═╡ 7a6c247e-d765-4299-bd93-8d8271ca711f
 begin
@@ -3785,7 +3779,7 @@ begin
 end;
 
 # ╔═╡ ad509647-538a-446c-ae96-ca3dc8900ed5
-md"### 2.6 Stationary Least Statistically Dependent Basis"
+md"#### Stationary Least Statistically Dependent Basis"
 
 # ╔═╡ 94fb81cf-d565-456b-8687-3e9545330476
 begin
@@ -4073,15 +4067,12 @@ end
 # ╟─bb147649-36bf-4a82-95bf-2d5080873028
 # ╟─ff1bfee3-2f30-4d15-9f3a-e3f422e67d72
 # ╟─458a5a1e-c453-4199-befe-2bf4db6825ae
-# ╟─7c0dba17-baf3-4b9c-b1c5-486f7e4515f4
-# ╠═a184ae65-7947-4ffb-b751-8b6e97a8608b
+# ╟─a184ae65-7947-4ffb-b751-8b6e97a8608b
+# ╟─49db1715-8d7d-4815-9972-8f3fc6895754
 # ╟─faa0a4ea-7849-408a-ac0f-c5cca8761aee
-# ╟─851b04bb-e382-4a0a-98f6-7d4b983ca5ab
-# ╟─356d75f4-6cc1-4062-8ef6-3cc6a9c2d9a7
-# ╟─341c2551-b625-47a0-9163-3c0c0e7d4e13
+# ╟─f313da22-8460-462f-8c0d-2055aef00d5e
 # ╟─9eae2f5c-1f47-43d8-a7ec-0767e50e6a9b
 # ╟─dbed8579-afa4-4a4d-b0bb-bd34877fa272
-# ╟─e214b298-04d8-473f-b56e-5f446374078c
 # ╟─e49e76e6-7018-4f49-a189-d2fae7df956d
 # ╟─9b4ef541-9a36-4bc0-8654-10ab0a4e63b3
 # ╟─4669be94-6c4c-42e2-b9d9-2dc98f1bdaea
@@ -4094,8 +4085,7 @@ end
 # ╟─e0a96592-5e77-4c29-9744-31369eea8147
 # ╟─c178527f-96a4-4ac7-bb0c-38b73b38c45b
 # ╟─ef3e7b66-fba0-467a-8a73-c9bf31fadbe3
-# ╟─cd9e259e-8bb3-497b-ac7f-f89a003c8032
-# ╟─3246e8b5-251f-4398-b21c-397341f2542e
+# ╠═cd9e259e-8bb3-497b-ac7f-f89a003c8032
 # ╟─82e713f8-c870-43d2-a849-e3b401b00459
 # ╟─6b02c425-39b9-467f-9406-3e9096873af4
 # ╟─95081e88-a623-4e91-99c1-8b254b366dac
