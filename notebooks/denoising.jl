@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.14.4
+# v0.17.2
 
 using Markdown
 using InteractiveUtils
@@ -7,8 +7,9 @@ using InteractiveUtils
 # This Pluto notebook uses @bind for interactivity. When running this notebook outside of Pluto, the following 'mock version' of @bind gives bound variables a default value (instead of an error).
 macro bind(def, element)
     quote
+        local iv = try Base.loaded_modules[Base.PkgId(Base.UUID("6e696c72-6542-2067-7265-42206c756150"), "AbstractPlutoDingetjes")].Bonds.initial_value catch; b -> missing; end
         local el = $(esc(element))
-        global $(esc(def)) = Core.applicable(Base.get, el) ? Base.get(el) : missing
+        global $(esc(def)) = Core.applicable(Base.get, el) ? Base.get(el) : iv(el)
         el
     end
 end
@@ -104,7 +105,7 @@ md"""
 **Select** a test function. These signals are obtained from D. Donoho and I. Johnstone in ["Adapting to Unknown Smoothness via Wavelet Shrinkage"](http://statweb.stanford.edu/~imj/WEBLIST/1995/ausws.pdf) Preprint Stanford, January 93, p 27-28.
 
 $(@bind signal_name_test Select(
-	["blocks", "bumps", "heavysine", "doppler", "quadchirp", "mishmash"],
+	["blocks", "bumps", "heavisine", "doppler", "quadchirp", "mishmash"],
 	default = "doppler"
 ))
 """
@@ -182,7 +183,7 @@ md"""
 	[
 		"blocks" => "Blocks", 
 		"bumps" => "Bumps", 
-		"heavysine" => "Heavy sine", 
+		"heavisine" => "Heavisine", 
 		"doppler" => "Doppler", 
 		"quadchirp" => "Quadchirp", 
 		"mishmash" => "Mishmash"
@@ -235,7 +236,7 @@ begin
 	x_noisy_test = addnoise(x_test, noise_size_test)
 	Plots.plot!(x_noisy_test, lw =1.5, label = "Noisy signal");
 	
-	y_test = acwt(x_noisy_test, wt_test, max_dec_level_test÷2);
+	y_test = acdwt(x_noisy_test, wt_test, max_dec_level_test÷2);
 	p2_test = WaveletsExt.wiggle(y_test, Overlap=false)
 	Plots.plot!(p2_test, xlabel = "Autocorrelation Transform of Noisy Signal")
 	
@@ -297,7 +298,7 @@ end;
 # ╔═╡ 9b4ef541-9a36-4bc0-8654-10ab0a4e63b3
 begin
 	# reconstruction
-	r1_test = iacwt(ŷ_test)
+	r1_test = iacdwt(ŷ_test)
 	r2_test = isdwt(ẑ_test, wt_test)
 	r3_test = idwt(ŵ_test, wt_test, max_dec_level_test÷2)
 	# plot original vs ACWT-denoised
@@ -426,7 +427,7 @@ md"#### Discrete Wavelet Transform"
 begin
 	if autorun
 		# Visushrink
-		Y["DWT"] = cat([dwt(X[:,i], wt) for i in axes(X,2)]..., dims=2)
+		Y["DWT"] = dwtall(X, wt)
 		σ₁["DWT"] = [noisest(Y["DWT"][:,i], false) for i in axes(X,2)]
 		σ₂["DWT"] = [relerrorthreshold(Y["DWT"][:,i], false) for i in axes(X,2)]
 		## bestTH = individual
@@ -609,9 +610,7 @@ md"#### Wavelet Packet Transform - Level $(max_dec_level÷2)"
 begin
 	if autorun
 		# Visushrink
-		Y["WPT$(max_dec_level÷2)"] = cat(
-			[wpt(X[:,i], wt, max_dec_level÷2) for i in axes(X,2)]..., dims=2
-		)
+		Y["WPT$(max_dec_level÷2)"] = wptall(X, wt, max_dec_level÷2)
 		T["WPT$(max_dec_level÷2)"] = maketree(
 			1<<max_dec_level, max_dec_level÷2, :full
 		)
@@ -811,9 +810,7 @@ md"#### Wavelet Packet Transform - Level $(max_dec_level)"
 begin
 	if autorun
 		# Visushrink
-		Y["WPT$(max_dec_level)"] = cat(
-			[wpt(X[:,i], wt,max_dec_level) for i in axes(X,2)]..., dims=2
-		)
+		Y["WPT$(max_dec_level)"] = wptall(X, wt, max_dec_level)
 		T["WPT$(max_dec_level)"] = maketree(1<<max_dec_level, max_dec_level, :full)
 		σ₁["WPT$(max_dec_level)"] = [
 			noisest(
@@ -1010,8 +1007,8 @@ md"#### Wavelet Packet Transform - Best Basis"
 begin
 	if autorun
 		# Visushrink
-		Y["WPD"] = cat([wpd(X[:,i], wt) for i in axes(X,2)]..., dims=3)
-		wpt_bt = bestbasistree(Y["WPD"], BB())
+		Y["WPD"] = wpdall(X, wt)
+		wpt_bt = bestbasistreeall(Y["WPD"], BB())
 		Y["WPT-BT"] = cat(
 			[wpt(X[:,i], wt, wpt_bt[:,i]) for i in axes(X,2)]..., dims=2
 		)
@@ -1210,7 +1207,7 @@ begin
 	if autorun
 		# Visushrink
 		T["JBB"] = bestbasistree(Y["WPD"], JBB())
-		Y["JBB"] = bestbasiscoef(Y["WPD"], T["JBB"])
+		Y["JBB"] = getbasiscoefall(Y["WPD"], T["JBB"])
 		σ₁["JBB"] = [noisest(Y["JBB"][:,i], false, T["JBB"]) for i in axes(X,2)]
 		σ₂["JBB"] = [relerrorthreshold(Y["JBB"][:,i], false, T["JBB"]) for i in axes(X,2)]
 		## bestTH = individual
@@ -1394,7 +1391,7 @@ begin
 	if autorun
 		# Visushrink
 		T["LSDB"] = bestbasistree(Y["WPD"], LSDB())
-		Y["LSDB"] = bestbasiscoef(Y["WPD"], T["LSDB"])
+		Y["LSDB"] = getbasiscoefall(Y["WPD"], T["LSDB"])
 		σ₁["LSDB"] = [noisest(Y["LSDB"][:,i], false, T["LSDB"]) for i in axes(X,2)]
 		σ₂["LSDB"] = [relerrorthreshold(Y["LSDB"][:,i], false, T["LSDB"]) for i in axes(X,2)]
 		## bestTH = individual
@@ -1583,7 +1580,7 @@ md"#### Autocorrelation Discrete Wavelet Transform"
 begin
 	if autorun
 		# Visushrink
-		Y["ACWT"] = cat([acwt(X[:,i], wt) for i in axes(X,2)]..., dims=3)
+		Y["ACWT"] = acdwtall(X, wt)
 		σ₁["ACWT"] = [noisest(Y["ACWT"][:,:,i], true) for i in axes(X,2)]
 		σ₂["ACWT"] = [relerrorthreshold(Y["ACWT"][:,:,i], true) for i in axes(X,2)]
 		## bestTH = individual
@@ -1766,9 +1763,7 @@ md"#### Autocorrelation Packet Transform - Level $(max_dec_level÷2)"
 begin
 	if autorun
 		# Visushrink
-		Y["ACWPT"] = cat(
-			[acwpt(X[:,i], wt, max_dec_level) for i in axes(X,2)]..., dims=3
-		)
+		Y["ACWPT"] = acwpdall(X, wt)
 		σ₁["ACWPT$(max_dec_level÷2)"] = [
 			noisest(
 				Y["ACWPT"][:,:,i], true, T["WPT$(max_dec_level÷2)"]
@@ -2209,7 +2204,7 @@ md"#### Autocorrelation Packet Transform - Best Basis"
 begin
 	if autorun
 		# Visushrink
-		acwpt_bt = bestbasistree(Y["ACWPT"], BB(redundant=true))
+		acwpt_bt = bestbasistreeall(Y["ACWPT"], BB(redundant=true))
 		σ₁["ACWPT-BT"]= [
 			noisest(Y["ACWPT"][:,:,i], true, acwpt_bt[:,i]) for i in axes(X,2)
 		]
@@ -2781,7 +2776,7 @@ md"#### Stationary Discrete Wavelet Transform"
 begin
 	if autorun
 		# Visushrink
-		Y["SDWT"] = cat([sdwt(X[:,i], wt) for i in axes(X,2)]..., dims=3)
+		Y["SDWT"] = sdwtall(X, wt)
 		σ₁["SDWT"] = [noisest(Y["SDWT"][:,:,i], true) for i in axes(X,2)]
 		σ₂["SDWT"] = [relerrorthreshold(Y["SDWT"][:,:,i], true) for i in axes(X,2)]
 		## bestTH = individual
@@ -2964,9 +2959,7 @@ md"#### Stationary Wavelet Packet Transform - Level $(max_dec_level÷2)"
 begin
 	if autorun
 		# Visushrink
-		Y["SWPD"] = cat(
-			[swpd(X[:,i], wt, max_dec_level) for i in axes(X,2)]..., dims=3
-		)
+		Y["SWPD"] = swpdall(X, wt, max_dec_level)
 		σ₁["SWPT$(max_dec_level÷2)"] = [
 			noisest(
 				Y["SWPD"][:,:,i], true, T["WPT$(max_dec_level÷2)"]
@@ -3407,7 +3400,7 @@ md"#### Stationary Wavelet Packet Transform - Best Basis"
 begin
 	if autorun
 		# Visushrink
-		swpt_bt = bestbasistree(Y["SWPD"], BB(redundant=true))
+		swpt_bt = bestbasistreeall(Y["SWPD"], BB(redundant=true))
 		σ₁["SWPT-BT"]= [
 			noisest(Y["SWPD"][:,:,i], true, swpt_bt[:,i]) for i in axes(X,2)
 		]
@@ -4085,7 +4078,7 @@ end
 # ╟─e0a96592-5e77-4c29-9744-31369eea8147
 # ╟─c178527f-96a4-4ac7-bb0c-38b73b38c45b
 # ╟─ef3e7b66-fba0-467a-8a73-c9bf31fadbe3
-# ╠═cd9e259e-8bb3-497b-ac7f-f89a003c8032
+# ╟─cd9e259e-8bb3-497b-ac7f-f89a003c8032
 # ╟─82e713f8-c870-43d2-a849-e3b401b00459
 # ╟─6b02c425-39b9-467f-9406-3e9096873af4
 # ╟─95081e88-a623-4e91-99c1-8b254b366dac

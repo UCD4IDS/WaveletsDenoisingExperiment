@@ -3,7 +3,7 @@ using CSV, DataFrames, Gadfly, Compose
 # import files
 blocks = CSV.read("./results/blocks.csv", DataFrame)
 bumps = CSV.read("./results/bumps.csv", DataFrame)
-heavysine = CSV.read("./results/heavysine.csv", DataFrame)
+heavisine = CSV.read("./results/heavisine.csv", DataFrame)
 doppler = CSV.read("./results/doppler.csv", DataFrame)
 quadchirp = CSV.read("./results/quadchirp.csv", DataFrame)
 mishmash = CSV.read("./results/mishmash.csv", DataFrame)
@@ -55,14 +55,14 @@ end
 
 blocksplot = makeplot(blocks, "Blocks")
 bumpsplot = makeplot(bumps, "Bumps")
-heavysineplot = makeplot(heavysine, "Heavysine")
+heavisineplot = makeplot(heavisine, "Heavisine")
 dopplerplot = makeplot(doppler, "Doppler")
 quadchirpplot = makeplot(quadchirp, "Quadchirp")
 mishmashplot = makeplot(mishmash, "Mishmash")
 
 draw(SVG("./figures/blocks.svg", 10inch, 7inch), blocksplot)
 draw(SVG("./figures/bumps.svg", 10inch, 7inch), bumpsplot)
-draw(SVG("./figures/heavysine.svg", 10inch, 7inch), heavysineplot)
+draw(SVG("./figures/heavisine.svg", 10inch, 7inch), heavisineplot)
 draw(SVG("./figures/doppler.svg", 10inch, 7inch), dopplerplot)
 draw(SVG("./figures/quadchirp.svg", 10inch, 7inch), quadchirpplot)
 draw(SVG("./figures/mishmash.svg", 10inch, 7inch), mishmashplot)
